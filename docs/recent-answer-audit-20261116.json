@@ -1,0 +1,840 @@
+{
+  "date_utc": "2026-11-16",
+  "run": "runs/childishness-01",
+  "objective": "conciseness",
+  "source": "runs/childishness-01/judge.jsonl",
+  "journal_prefix_rows": 1608,
+  "sampling": "Last 100 question groups in the frozen 1608-row prefix; random.Random(42), sample 30 groups then select one random candidate per selected group. Not best-of-four selection.",
+  "completed_update_at_initial_inspection": 394,
+  "reviewer": "Codex assistant, independent qualitative review; not a human benchmark or new Haiku call",
+  "limitations": [
+    "No paired original-model answers were generated; training-induced regression cannot be inferred.",
+    "These are training responses, not held-out benchmark results.",
+    "Categories include subjective judgments; they are not an estimated general accuracy rate.",
+    "Not every external factual assertion was exhaustively verified.",
+    "Source line numbers identify an append-only journal prefix; replayed groups exist earlier in the journal following resume."
+  ],
+  "counts": {
+    "acceptable": 20,
+    "qualified_or_uncertain": 6,
+    "substantive_issue": 4
+  },
+  "sources": {
+    "read": "https://dictionary.cambridge.org/dictionary/english/read",
+    "ride": "https://dictionary.cambridge.org/dictionary/english/ride?topic=carnival-fairground-and-circus",
+    "future_perfect_continuous": "https://dictionary.cambridge.org/uk/grammar/british-grammar/future-perfect-continuous",
+    "fda_software_scope": "https://www.fda.gov/medical-devices/digital-health-center-excellence/device-software-functions-including-mobile-medical-applications"
+  },
+  "answers": [
+    {
+      "window_question": 1,
+      "source_jsonl_line": 1509,
+      "candidate": 2,
+      "instruction": "Write a meaningful caption for the following figure.\n\n[Figure: A person with their fist held above their head.]",
+      "answer": "One fist soaring above the head.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Concise and accurate, describing the single fist raised above the head efficiently.",
+        "conciseness": 0.9,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2189,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 8,
+        "judge_answer_tokens": 8,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "A reasonable descriptive caption for the supplied text description."
+    },
+    {
+      "window_question": 4,
+      "source_jsonl_line": 1512,
+      "candidate": 4,
+      "instruction": "Construct a valid argument.\n\nMultiple scientists have confirmed the existence of climate change, but some politicians deny it.",
+      "answer": "**Argument**\n\n- **Premise 1:** Multiple scientists have confirmed that climate change exists.  \n- **Premise 2:** Some politicians deny that climate change exists.  \n- **Conclusion:** Therefore, some politicians are incorrect in denying climate change, because the scientific consensus confirms its existence.  \n\n*Justification:* From Premise 1 we infer that climate change is real. Denying a real phenomenon is false; thus, any claim that it does not exist (as made by the politicians in Premise 2) is false. Hence, those politicians are wrong. This reasoning is logically valid.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Complete valid argument with premises, conclusion, and justification; justification paragraph adds some unnecessary wording.",
+        "conciseness": 0.6,
+        "id": "c3"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2058,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 122,
+        "judge_answer_tokens": 122,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "substantive_issue",
+      "assessment_note": "Claims deductive validity without a premise establishing that scientists confirming a claim guarantees its truth. Multiple scientists also does not alone establish consensus. The climate conclusion itself is not the issue."
+    },
+    {
+      "window_question": 5,
+      "source_jsonl_line": 1513,
+      "candidate": 3,
+      "instruction": "Name five countries in the Middle East",
+      "answer": "1. Saudi Arabia  \n2. Iran  \n3. Israel  \n4. United Arab Emirates  \n5. Qatar",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Concise numbered list of five countries fully satisfies the request with no extra material.",
+        "conciseness": 1.0,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 468,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 23,
+        "judge_answer_tokens": 23,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Five appropriate Middle Eastern countries."
+    },
+    {
+      "window_question": 12,
+      "source_jsonl_line": 1520,
+      "candidate": 3,
+      "instruction": "Analyze and classify the reviewed customer feedback.\n\nCustomer Feedback:\nThe product is great but the customer service is terrible.",
+      "answer": "**Analysis:** The customer expresses satisfaction with the product (\"great\") but criticizes customer service (\"terrible\"). This indicates two distinct sentiments: positive about the product, negative about support.\n\n**Classification:** Mixed / Contrasting feedback.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Concise and complete; the analysis sentence repeats the classification idea slightly but overall very efficient.",
+        "conciseness": 0.8,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 349,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 48,
+        "judge_answer_tokens": 48,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Correctly distinguishes positive product sentiment from negative customer-service sentiment."
+    },
+    {
+      "window_question": 14,
+      "source_jsonl_line": 1522,
+      "candidate": 2,
+      "instruction": "Greet an incoming guest.\n\nJohn Smith",
+      "answer": "Hello John Smith! Welcome! How can I help you today?",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Greets John Smith with a welcome and offer of help; essentially the same as c2 with slightly more punctuation.",
+        "conciseness": 0.9,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 114,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 13,
+        "judge_answer_tokens": 13,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Appropriate greeting using the supplied name."
+    },
+    {
+      "window_question": 15,
+      "source_jsonl_line": 1523,
+      "candidate": 2,
+      "instruction": "Identify the continents with the most carnivores.",
+      "answer": "Asia and Africa are generally considered to have the highest diversity of carnivores, with a rich array of large predators such as tigers, lions, leopards, and hyenas. North America also has notable carnivores like wolves and bears. While these continents typically lead in overall carnivore species, exact rankings can vary depending on whether the count focuses on number of species or size of species; consulting detailed species distribution databases provides the most precise figures.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Identifies continents with supporting examples, but includes hedging, ranking caveats, and a database suggestion that are avoidable.",
+        "conciseness": 0.55,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2910,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 92,
+        "judge_answer_tokens": 92,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Continental carnivore rankings are unsupported here; the question does not define species diversity versus abundance, or Carnivora versus all carnivorous animals. No ranking was verified in this audit."
+    },
+    {
+      "window_question": 18,
+      "source_jsonl_line": 1526,
+      "candidate": 3,
+      "instruction": "Generate a database table structure for a customer records system.",
+      "answer": "```sql\nCREATE TABLE customers (\n    customer_id INT AUTO_INCREMENT PRIMARY KEY,\n    first_name VARCHAR(50) NOT NULL,\n    last_name VARCHAR(50) NOT NULL,\n    email VARCHAR(100) NOT NULL UNIQUE,\n    phone VARCHAR(15),\n    address VARCHAR(255),\n    city VARCHAR(50),\n    state VARCHAR(50),\n    postal_code VARCHAR(20),\n    country VARCHAR(50),\n    date_of_birth DATE,\n    gender CHAR(1),\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n    is_active BOOLEAN DEFAULT TRUE\n);\n```",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Single clean SQL statement with no framing; includes a few optional columns but expressed efficiently.",
+        "conciseness": 0.85,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1688,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 130,
+        "judge_answer_tokens": 130,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Reasonable customer table in MySQL-style SQL. Not executed; syntax is dialect-specific."
+    },
+    {
+      "window_question": 26,
+      "source_jsonl_line": 1534,
+      "candidate": 1,
+      "instruction": "Convert the measurements into tablespoons.\n\n3 teaspoons",
+      "answer": "3 teaspoons is equal to 1 tablespoon.\n\n\\boxed{1}",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Direct answer with no unnecessary material; fully satisfies the conversion.",
+        "conciseness": 1.0,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 99,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 14,
+        "judge_answer_tokens": 14,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Correct conventional conversion: three teaspoons to one tablespoon."
+    },
+    {
+      "window_question": 28,
+      "source_jsonl_line": 1536,
+      "candidate": 1,
+      "instruction": "Describe what a hard drive does",
+      "answer": "A hard drive is an electronic storage device that saves data on magnetic disks (traditional HDDs) or flash memory chips (SSDs). It reads and writes binary data to and from the disk, allowing computers to store files, programs, and other information. When you save a document, the hard drive writes the data to its magnetic platters or memory cells, and when you open it, the drive reads the stored bits back to your device.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Adds SSD mention and some repetition of save/open explanation; slightly more elaboration than needed.",
+        "conciseness": 0.7,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 229,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 91,
+        "judge_answer_tokens": 91,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Broad storage explanation is useful, but conflates a magnetic hard disk drive with the broader category of SSD/storage drives."
+    },
+    {
+      "window_question": 29,
+      "source_jsonl_line": 1537,
+      "candidate": 4,
+      "instruction": "Suggest five steps to troubleshoot a laptop that is slow to boot",
+      "answer": "1. Restart the laptop to clear temporary memory and load issues.  \n2. Update the operating system and all drivers to their latest versions.  \n3. Close unnecessary applications and disable startup programs that aren't needed at boot.  \n4. Check disk space and health; a full or failing drive can cause slow boot.  \n5. Run a system malware scan and perform a boot diagnostic to rule out malicious software.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Five brief steps with minimal wording; generic but efficiently expressed and complete.",
+        "conciseness": 0.8,
+        "id": "c3"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 402,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 84,
+        "judge_answer_tokens": 84,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Five reasonable troubleshooting suggestions; no claim that all are needed for a particular machine."
+    },
+    {
+      "window_question": 30,
+      "source_jsonl_line": 1538,
+      "candidate": 1,
+      "instruction": "Compare and contrast the use of AI in the fields of healthcare and education.",
+      "answer": "**Artificial intelligence (AI) is reshaping both healthcare and education, but its applications, goals, and constraints differ significantly due to the distinct contexts and data types of each field.**\n\n### AI in Healthcare\n- **Primary uses**: Medical imaging analysis, disease diagnosis (e.g., cancer detection), predictive analytics for patient outcomes, drug discovery, virtual health assistants, administrative automation (scheduling, billing).  \n- **Benefits**: Early detection, reduced human error, personalized treatment plans, operational efficiency.  \n- **Challenges**: Handling sensitive patient data (HIPAA compliance), algorithmic bias, integration into clinical workflows, and strict regulatory approval (FDA).\n\n### AI in Education\n- **Primary uses**: Adaptive learning platforms (e.g., Khan Academy), automated essay grading, intelligent tutoring systems, content recommendation, administrative tasks (enrollment, communication).  \n- **Benefits**: Tailored learning paths, immediate feedback, scalable support for large student bodies.  \n- **Challenges**: Data privacy (student records), bias in assessment algorithms, teacher adoption, and ensuring equitable access.\n\n### Comparison\n- **Data**: Healthcare AI relies on PHI, subject to stringent regulations; education AI uses student performance data, with less strict oversight but still privacy concerns.  \n- **Objectives**: In healthcare, AI aims to improve patient outcomes and safety; in education, it seeks to enhance learning experiences and academic achievement.  \n- **Role of AI**: Often assists clinicians in diagnosis and treatment decisions; typically acts as a tutor or personalizer guiding students.  \n- **Scale of impact**: Healthcare AI can affect millions of lives; education AI influences individual students and broader societal skills.  \n- **Regulation**: Medical AI requires FDA clearance and adherence to medical device laws; educational AI tools face minimal regulatory hurdles.\n\n### Contrast\n- **Urgency and stakes**: Life‑critical versus academic.  \n- **Data sensitivity and legal frameworks**: Healthcare data is far more restricted and heavily regulated.  \n- **Workflow integration**: Healthcare AI must fit into clinical routines and patient safety; education AI may be embedded in classrooms and less invasive.  \n- **Stakeholders**: Patients, doctors, and healthcare systems versus students, parents, and teachers.  \n\nIn summary, while both fields leverage AI to personalize services and boost efficiency, healthcare AI is driven by life‑saving outcomes and strict compliance, whereas education AI focuses on learning enhancement with more flexible deployment.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Complete and efficiently structured; minor repetition between Comparison and Contrast sections and a summary restating points.",
+        "conciseness": 0.75,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1454,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 499,
+        "judge_answer_tokens": 499,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "substantive_issue",
+      "assessment_note": "Claims medical AI requires FDA clearance as a blanket rule. FDA oversight depends on software function and risk; some functions are excluded or subject to enforcement discretion. Other educational-regulation generalizations are insufficiently qualified."
+    },
+    {
+      "window_question": 32,
+      "source_jsonl_line": 1540,
+      "candidate": 3,
+      "instruction": "Fill in the blank with a word that is most appropriate in the given sentence.\n\nHe is so energetic, nothing can __ him down.",
+      "answer": "knock",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Single word 'knock' directly fills the blank idiomatically ('knock down'); nothing extraneous.",
+        "conciseness": 1.0,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2283,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 2,
+        "judge_answer_tokens": 2,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Knock is a defensible completion of knock him down, although slow would be a more natural expected answer."
+    },
+    {
+      "window_question": 36,
+      "source_jsonl_line": 1544,
+      "candidate": 3,
+      "instruction": "Imagine a conversation between two employees about their work.",
+      "answer": "**Sam:** Good morning! Just had my first coffee this morning.  \n**Jordan:** Morning, Sam. Long week?  \n**Sam:** It's been a whirlwind. We had a big client call yesterday.  \n**Jordan:** Hope it went well. What was the main topic?  \n**Sam:** The new product launch strategy. I drafted the slide deck.  \n**Jordan:** Nice. Thanks for sharing.",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Brief, natural exchange about work with minimal avoidable wording; fulfills the request efficiently.",
+        "conciseness": 0.85,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1017,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 89,
+        "judge_answer_tokens": 89,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "A plausible short fictional conversation about work."
+    },
+    {
+      "window_question": 54,
+      "source_jsonl_line": 1562,
+      "candidate": 3,
+      "instruction": "Can you give an example of a word that is a homophone?",
+      "answer": "A common example is the pair **\"read\"** and **\"ride\"**. Both are pronounced /ri:ed/ but have different meanings and spellings.",
+      "haiku_judgment": {
+        "factual_consistency": "contradicted",
+        "relevant": true,
+        "reason": "Read and ride are not homophones, and the pronunciation given is wrong; the answer is also a repeat of an incorrect example.",
+        "conciseness": 0.25,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 468,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 30,
+        "judge_answer_tokens": 30,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "substantive_issue",
+      "assessment_note": "Read and ride are not homophones; their pronunciation is wrong in the answer."
+    },
+    {
+      "window_question": 55,
+      "source_jsonl_line": 1563,
+      "candidate": 1,
+      "instruction": "Cite an example of a data-driven algorithm.",
+      "answer": "One example is **Linear Regression**, a data-driven algorithm that uses historical data to fit a linear model and predict continuous outcomes.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Concise and accurate single example with brief definition; no avoidable text.",
+        "conciseness": 0.95,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 565,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 25,
+        "judge_answer_tokens": 25,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Linear regression is an appropriate data-driven algorithm example."
+    },
+    {
+      "window_question": 58,
+      "source_jsonl_line": 1566,
+      "candidate": 4,
+      "instruction": "Report how many of the items are in a particular size.\n\nA clothing store has the following T-shirts in stock: Small - 2, Medium - 4, Large - 3, Extra-large - 7.",
+      "answer": "\\boxed{2}\\boxed{4}\\boxed{3}\\boxed{7}",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": false,
+        "reason": "Gives four unlabeled boxed numbers without sizes, so the reader cannot tell which count goes with which size.",
+        "conciseness": 0.25,
+        "id": "c3"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2578,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 16,
+        "judge_answer_tokens": 16,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Counts are correct in source order, but size labels were removed. The source itself does not specify one particular size."
+    },
+    {
+      "window_question": 65,
+      "source_jsonl_line": 1573,
+      "candidate": 1,
+      "instruction": "Create a general plan for a picnic in a park.",
+      "answer": "**Picnic in the Park: General Plan**\n\n- **When:** Pick a weekend, aim for a sunny day between 10 AM–2 PM.  \n- **Where:** Choose a park with open grass, shade, and nearby restrooms; look for picnic tables or a designated area.  \n- **What to bring:**  \n  - Picnic blanket or mat  \n  - Chairs or cushions (optional)  \n  - Cooler with ice for drinks  \n  - Reusable plates, cups, utensils, napkins  \n  - Food: sandwiches, snacks, fruit, etc.  \n  - Drinks: water, juice, or iced tea  \n  - Trash bags and a small towel for wiping hands  \n  - Sunscreen and insect repellent (optional)  \n- **Setup:** Arrive 15 minutes early, spread out the blanket, arrange food and drinks, and relax.  \n- **Enjoy:** Eat, play games (if desired), and take breaks from the sun.  \n- **Clean-up:** Pack leftovers, take out trash, and wash dishes or use provided facilities afterward.",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Complete plan covering timing, location, supplies, setup, and cleanup; minor optional items and extra detail, mostly efficient.",
+        "conciseness": 0.8,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1019,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 233,
+        "judge_answer_tokens": 233,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Usable general picnic plan, assessed for requested planning content rather than comprehensive food-safety advice."
+    },
+    {
+      "window_question": 70,
+      "source_jsonl_line": 1578,
+      "candidate": 4,
+      "instruction": "Identify a data structure that would be appropriate for storing employee records.",
+      "answer": "\\boxed{\\text{list}}",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": false,
+        "reason": "Names only 'list' in LaTeX boxed form, omitting that it stores records and offering no explanation.",
+        "conciseness": 0.25,
+        "id": "c3"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2604,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 6,
+        "judge_answer_tokens": 6,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "A list can store employee records. Generic and awkwardly formatted, but the instruction only asks to identify a data structure; Haiku demands an explanation the instruction does not request."
+    },
+    {
+      "window_question": 72,
+      "source_jsonl_line": 1580,
+      "candidate": 1,
+      "instruction": "Name four types of supervised learning",
+      "answer": "Four common types of supervised learning include:\n\n1. **Linear regression** – predicts a continuous outcome.  \n2. **Logistic regression** – predicts a binary outcome.  \n3. **Decision tree** – splits data based on features for classification or regression.  \n4. **Support vector machine (SVM)** – finds a margin that separates classes, used for both classification and regression.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Four named algorithms with brief descriptions; SVM description is slightly wordy but efficient overall.",
+        "conciseness": 0.85,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2391,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 79,
+        "judge_answer_tokens": 79,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Four valid supervised-learning algorithms. Types is ambiguous; interpreting it as algorithms is reasonable."
+    },
+    {
+      "window_question": 76,
+      "source_jsonl_line": 1584,
+      "candidate": 3,
+      "instruction": "Generate a list of creative storage solutions for a small bedroom.",
+      "answer": "1. **Swivel bed with integrated storage** – choose a bed frame that includes a hidden compartment in the headboard or below the mattress.  \n2. **Wall-mounted floating shelves with clips** – create an invisible gallery wall for art and hang items.  \n3. **Converted closet into a mini desk** – remove the door and add shelving for books or supplies.  \n4. **Over-the-door shoe rack and jewelry organizer** – clip accessories and shoes directly from the door.  \n5. **Ladder shelf above the bed** – store shoes and off-season clothes at eye level.  \n6. **Hanging garment rack** – use a pegboard on the wall for hanging sweaters, scarves, and belts.  \n7. **Rolling cart with drawers** – a mobile desk and storage for work items and light cleaning supplies.  \n8. **Repurposed shoe box as a nightstand organizer** – tuck toiletries, remote controls, and chargers.  \n9. **Clear acrylic bins under the bed** – keep clothes and accessories visible and easy to grab.  \n10. **Magnetic knife strip on the door** – hang knives, utensils, and small tools within reach.  \n11. **Vertical plant wall with pockets** – grow herbs while storing seed packets and cuttings.  \n12. **Slatted screen as a headboard storage** – turn the slatted fabric into a decorative element with hidden pockets for toiletries.",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Twelve concise numbered items with brief descriptions; each serves the request efficiently with no framing or repetition.",
+        "conciseness": 0.9,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1275,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 306,
+        "judge_answer_tokens": 306,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Creative list has several ill-fitting or impractical suggestions, including a knife strip in a bedroom and unclear descriptions. Not all ideas are dependable practical advice."
+    },
+    {
+      "window_question": 78,
+      "source_jsonl_line": 1586,
+      "candidate": 3,
+      "instruction": "How is a planet's orbital period determined?",
+      "answer": "The orbital period (P) of a planet is the time it takes to complete one full revolution around its star. It is typically determined by:\n\n- **Observations**: Tracking the planet's position over time and measuring the interval between successive returns to the same phase (e.g., using telescopic data or light curves).\n- **Kepler's Third Law**: For a planet orbiting a star of mass \\(M\\),  \n  \\[\n  P^2 = \\frac{4\\pi^2}{GM} a^3,\n  \\]  \n  where \\(a\\) is the semi-major axis of the orbit. If \\(a\\) (or the distance) is known, the period can be calculated.\n\nIn practice, for our solar system planets, periods are measured directly from observations; for exoplanets, transit timing or radial velocity variations provide the period.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Efficient bulleted structure, but the final paragraph about solar system and exoplanet measurement is avoidable extra material.",
+        "conciseness": 0.7,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 928,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 173,
+        "judge_answer_tokens": 173,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Broadly sound introduction to observations and Kepler third law. Formula uses the usual negligible-planet-mass approximation."
+    },
+    {
+      "window_question": 82,
+      "source_jsonl_line": 1590,
+      "candidate": 2,
+      "instruction": "Create a resume headline focusing on customer service.",
+      "answer": "Customer Service Specialist | Delivering Exceptional Support & Resolution",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Concise, focused headline on customer service with no avoidable wording.",
+        "conciseness": 1.0,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 748,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 12,
+        "judge_answer_tokens": 12,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Appropriate customer-service resume headline."
+    },
+    {
+      "window_question": 85,
+      "source_jsonl_line": 1593,
+      "candidate": 1,
+      "instruction": "Rewrite the following sentence using the future perfect continuous tense.\n\nHe will have been shopping for two hours by the time you arrive.",
+      "answer": "He will have been shopping for two hours by the time you arrive.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": false,
+        "reason": "Returns the original sentence unchanged, failing to perform the requested rewrite.",
+        "conciseness": 0.1,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1732,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 14,
+        "judge_answer_tokens": 14,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "The supplied sentence is already future perfect continuous. Returning it preserves the requested tense; ideally the answer would explain that no tense change is necessary. Haiku over-penalizes it."
+    },
+    {
+      "window_question": 87,
+      "source_jsonl_line": 1595,
+      "candidate": 1,
+      "instruction": "Suggest a 5-star restaurant for the following group: a vegetarian and two meat-eaters.",
+      "answer": "I'd be happy to suggest a 5-star restaurant! Could you let me know the city or location? Without that, I can't pick one.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Brief and asks the necessary clarifying question, but gives no recommendation; some framing like 'I'd be happy to' is unnecessary.",
+        "conciseness": 0.5,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1475,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 31,
+        "judge_answer_tokens": 31,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Asking for a location is appropriate before a real restaurant recommendation."
+    },
+    {
+      "window_question": 89,
+      "source_jsonl_line": 1597,
+      "candidate": 2,
+      "instruction": "Rewrite the following paragraph using fewer words and no loss of meaning.\n\nManufacturers all around the globe are fighting a battle to reduce their waste and increase the sustainability of their production.",
+      "answer": "Global manufacturers cut waste and boost sustainability.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Shortest version, but drops 'production' and 'battle' nuance, slightly reducing meaning.",
+        "conciseness": 0.85,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 770,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 8,
+        "judge_answer_tokens": 8,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "substantive_issue",
+      "assessment_note": "Changes manufacturers striving to reduce waste into manufacturers actually reducing waste; drops the production qualifier. Violates the explicit no-loss-of-meaning constraint."
+    },
+    {
+      "window_question": 90,
+      "source_jsonl_line": 1598,
+      "candidate": 3,
+      "instruction": "Given the provided situation, come up with a creative solution.\n\nThe environment is deteriorating due to industrial pollution.",
+      "answer": "**Turn the site into a living filter:** Plant engineered trees and mosses to absorb airborne and soil pollutants, and use the factory’s waste heat to run solar‑powered air scrubbers that convert emissions into harmless compounds. Feed the factories’ excess streams into vertical hydroponic farms, turning the area into a food source while recycling water. Deploy autonomous drones and IoT sensors to map and monitor pollution in real time, creating a self‑correcting ecosystem that transforms industrial decay into a resilient, productive landscape.",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Covers multiple components, but the drone/IoT monitoring and closing summary phrasing add avoidable material beyond the core idea.",
+        "conciseness": 0.6,
+        "id": "c2"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 1026,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 104,
+        "judge_answer_tokens": 104,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Creative speculative proposal presents technically unclear claims, including waste heat running solar-powered scrubbers and pollutant streams feeding food production without addressing contamination."
+    },
+    {
+      "window_question": 94,
+      "source_jsonl_line": 1602,
+      "candidate": 1,
+      "instruction": "Generate an example of how to use the phrase “voice of reason\"",
+      "answer": "Sure! Here’s a quick example:\n\n> At the town‑hall meeting, Mayor Linda stepped forward as the **voice of reason**, urging residents to base the new zoning plan on long‑term sustainability rather than the short‑term lobbying promises.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Opens with unnecessary filler 'Sure! Here's a quick example:' before the sentence.",
+        "conciseness": 0.8,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 233,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 52,
+        "judge_answer_tokens": 52,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Uses voice of reason appropriately in a fictional example."
+    },
+    {
+      "window_question": 95,
+      "source_jsonl_line": 1603,
+      "candidate": 2,
+      "instruction": "Describe the atmosphere of this room\n\n<An image of a living room with comfortable furniture and warm colors>",
+      "answer": "The room feels **cozy and inviting**. The comfortable furniture and warm, inviting colors (like soft oranges, reds, and yellows) create a welcoming, relaxed ambiance—perfect for unwinding and enjoying a calm atmosphere.",
+      "haiku_judgment": {
+        "factual_consistency": "consistent",
+        "relevant": true,
+        "reason": "Efficient, but the parenthetical color list and bolding add modest avoidable detail.",
+        "conciseness": 0.75,
+        "id": "c1"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 207,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 46,
+        "judge_answer_tokens": 46,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Cozy atmosphere is supported by the supplied warm-colors and comfortable-furniture description. Specific colors are illustrative additions, not observed image evidence."
+    },
+    {
+      "window_question": 96,
+      "source_jsonl_line": 1604,
+      "candidate": 1,
+      "instruction": "Create 5 open ended questions about a given topic.\n\n3D printing",
+      "answer": "1. What are the primary advantages of 3D printing over traditional manufacturing techniques?  \n2. How does the selection of materials in 3D printing influence the mechanical properties and functional performance of the final product?  \n3. In which ways can 3D printing be applied to create customized medical implants or prosthetics?  \n4. What are the major challenges currently faced in scaling up 3D printing for large‑scale production, and how are they being addressed?  \n5. How might future advancements in 3D printing technologies reshape industries such as aerospace, architecture, and automotive design?",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Five concise open-ended questions; no unnecessary framing or repetition.",
+        "conciseness": 0.95,
+        "id": "c0"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 397,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 123,
+        "judge_answer_tokens": 123,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "acceptable",
+      "assessment_note": "Five appropriate open-ended questions about 3D printing."
+    },
+    {
+      "window_question": 98,
+      "source_jsonl_line": 1606,
+      "candidate": 4,
+      "instruction": "Generate a 3-line limerick",
+      "answer": "There once was a cat who loved to purr,  \nHe slipped on the rug and fell on his back,  \nHe woke up and felt blue.",
+      "haiku_judgment": {
+        "factual_consistency": "unclear",
+        "relevant": true,
+        "reason": "Three lines, compact, but rhyme and meter do not follow limerick form; no extra material.",
+        "conciseness": 0.6,
+        "id": "c3"
+      },
+      "generation_diagnostics": {
+        "generated_tokens": 2660,
+        "hit_token_limit": false,
+        "thinking_detected": true,
+        "unfinished_thinking": false,
+        "empty_final_answer": false,
+        "final_answer_tokens": 32,
+        "judge_answer_tokens": 32,
+        "answer_truncated_for_judge": false,
+        "answer_tokenizer": "local_policy"
+      },
+      "assistant_assessment": "qualified_or_uncertain",
+      "assessment_note": "Three-line limerick is an internally conflicting request because a standard limerick has five lines. The answer follows the line count but lacks a convincing rhyme scheme; do not treat it as an unambiguous factual test."
+    }
+  ]
+}

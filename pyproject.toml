@@ -1,0 +1,28 @@
+[project]
+name = "rlllmf"
+version = "0.1.0"
+description = "Full-parameter GRPO optimism experiment with LFM3 and an Anthropic judge"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "torch==2.10.0",
+  "trl==1.18.0",
+  "transformers==5.23.0",
+  "accelerate==1.15.0",
+  "datasets==5.2.0",
+  "bitsandbytes==0.50.2",
+  "anthropic==2.8.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<10", "ruff>=0.11,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: CPU-only tiny-model integration checks (no downloads or API calls)"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

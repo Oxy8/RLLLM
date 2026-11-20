@@ -1,0 +1,142 @@
+{
+  "recorded_at_utc": "2026-11-15T20:15:05.550009+00:00",
+  "purpose": "Manual documentation catch-up; current settings and observed run state, not a completed-result claim.",
+  "current_settings": {
+    "judge": {
+      "model": "claude-haiku-5-5",
+      "rubric_path": "prompts/conciseness.txt",
+      "score_name": "conciseness",
+      "max_tokens": 1024,
+      "concurrency": 2,
+      "timeout_seconds": 90,
+      "max_retries": 2,
+      "max_requests": 4096,
+      "cache_path": ".cache/judge.sqlite3"
+    },
+    "data": {
+      "repo_id": "tatsu-lab/alpaca_farm",
+      "revision": "main",
+      "train_file": "alpaca_instructions/unlabeled.json",
+      "eval_file": "alpaca_instructions/val.json",
+      "output_dir": "data/lfm3",
+      "train_samples": 5000,
+      "eval_samples": 100,
+      "max_prompt_tokens": 512
+    },
+    "training": {
+      "model": "LiquidAI/LFM3-1.7B",
+      "revision": "main",
+      "output_dir": "runs/lfm3-optimism",
+      "seed": 42,
+      "max_steps": 512,
+      "learning_rate": 5e-06,
+      "lr_scheduler_type": "constant",
+      "num_generations": 4,
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 16,
+      "max_completion_length": 4096,
+      "max_answer_tokens": 1024,
+      "enable_thinking": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "gradient_checkpointing": true,
+      "optimizer": "adamw_bnb_8bit",
+      "beta": 0.01,
+      "reference_cpu_offload_gib": 5.0,
+      "save_steps": 25,
+      "logging_steps": 1
+    },
+    "evaluation": {
+      "max_completion_length": 4096,
+      "max_answer_tokens": 1024,
+      "enable_thinking": true,
+      "temperature": 0.0,
+      "top_p": 0.9,
+      "cache_baseline": true,
+      "baseline_cache_path": ".cache/baseline.sqlite3"
+    }
+  },
+  "planned_counts": {
+    "answers_per_update": 16,
+    "questions_per_update": 4,
+    "planned_optimizer_updates": 512,
+    "planned_generated_answers": 8192,
+    "planned_question_appearances": 2048
+  },
+  "prepared_dataset_rows": {
+    "train": 5000,
+    "eval": 100
+  },
+  "latest_run": {
+    "path": "runs/childishness-01",
+    "manifest": "runs/childishness-01/run.json",
+    "score_name": "conciseness",
+    "rubric_path": "prompts/conciseness.txt",
+    "judge_rubric_sha256": "feb4163107622af05230d24f0ad2a6fd69ad036298dd6a255111858d33ead218",
+    "training": {
+      "model": "LiquidAI/LFM3-1.7B",
+      "revision": "main",
+      "output_dir": "runs/lfm3-optimism",
+      "seed": 42,
+      "max_steps": 512,
+      "learning_rate": 5e-06,
+      "lr_scheduler_type": "constant",
+      "num_generations": 4,
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 16,
+      "max_completion_length": 4096,
+      "max_answer_tokens": 1024,
+      "enable_thinking": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "gradient_checkpointing": true,
+      "optimizer": "adamw_bnb_8bit",
+      "beta": 0.01,
+      "reference_cpu_offload_gib": 5.0,
+      "save_steps": 25,
+      "logging_steps": 1
+    },
+    "data": {
+      "eval": {
+        "source_file": "alpaca_instructions/val.json",
+        "source_sha256": "0e4091924cafa087a9cef3e66578c32d2589ad27ef8818e4ce0cd636ec6936ff",
+        "selected": 100,
+        "requested": 100,
+        "duplicates": 0,
+        "too_long": 0
+      },
+      "train": {
+        "source_file": "alpaca_instructions/unlabeled.json",
+        "source_sha256": "f5b093992641ab1fa73f993d98b02a8e6a2edcd1f9424414413d1a3c6e19c640",
+        "selected": 5000,
+        "requested": 5000,
+        "duplicates": 0,
+        "too_long": 0
+      },
+      "repo_id": "tatsu-lab/alpaca_farm",
+      "revision": "main",
+      "tokenizer": "LiquidAI/LFM3-1.7B",
+      "tokenizer_revision": "main",
+      "max_prompt_tokens": 512,
+      "enable_thinking": true,
+      "seed": 42
+    },
+    "latest_logged_completed_update": 1,
+    "final_model_exists": false,
+    "trainer_state_exists": false
+  },
+  "implementation_sha256": {
+    "rlllmf/__init__.py": "bbe59e4a2e698674bb74446ab32176857e86a6032cf406750b5eb8fd6a7bd908",
+    "rlllmf/__main__.py": "8c345f9b106c0517e596c59279efa4303f6a73eecea5aa3315feb3ba516f0187",
+    "rlllmf/answers.py": "577cecea367f4f69a330d19c02048e8c53057c4ac8a196021bd99d6b75903328",
+    "rlllmf/baseline_cache.py": "658c12d0f1b5c922485d4e1e50212b630511c98ce1758136b22b45926a453d68",
+    "rlllmf/config.py": "ab748493d105150917cd50ffb3439820e92818d207f1b4187020da2f569c5993",
+    "rlllmf/data.py": "22afbb9daa509577359d762a93e60f0eca80a17af531a74c1a0b4d9758cee523",
+    "rlllmf/evaluation.py": "58123b3a878e34871f135e07b759a176ccf376e6dbf78f01ab8051aeed93d8cb",
+    "rlllmf/judge.py": "3063e660ad7fcb923350e1e2b0cc9707faec893d67673c1fddb54b4668def0c1",
+    "rlllmf/offload.py": "162cdec0125771a336b3329b2d5c0ee099d701fe91bd34f7d695eba259646f66",
+    "rlllmf/training.py": "25b6c988acbe4becb6478dec83bea6e96ce5235f9c775caecb8e4d20421faf52",
+    "rlllmf/viewer.py": "91c933f6de1c5bdd1537e8c5bb2e2ca72be02142e08ff9c87d99f045745dd72e"
+  },
+  "active_rubric_sha256": "feb4163107622af05230d24f0ad2a6fd69ad036298dd6a255111858d33ead218"
+}

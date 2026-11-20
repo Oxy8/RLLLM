@@ -1,0 +1,31 @@
+{
+  "date_utc": "2026-11-19",
+  "run": "runs/lfm3-childishness-after-sft-02-continuation",
+  "last_completed_step": 1388,
+  "failed_update": 1389,
+  "target_step": 1536,
+  "failure_time_utc": "2026-11-19T09:25:21Z",
+  "cause": "Anthropic judge returned stop_reason=refusal; training raised an error before using a reward.",
+  "evidence_source": "User pasted terminal error; cleanup files and process exit code 1 corroborate a handled exception.",
+  "kernel_memory_kill_at_failure": false,
+  "latest_saved_checkpoint": "runs/lfm3-childishness-after-sft-02/checkpoint-1024",
+  "unsaved_completed_updates": 364,
+  "provider_refusal_details_available": false,
+  "failed_batch_questions": [
+    "Produce a rhyming poem based on the following words: Laughter, joy, happy",
+    "Rearrange the supplied poem as an English sonnet",
+    "Describe the daily routine of a doctor",
+    "Classify a small black and white bird with a long beak as Mammal or Not a Mammal"
+  ],
+  "changes": [
+    "Separate refusal diagnostics from max_tokens advice",
+    "Persist provider stop_details and final-only request payload in judge.errors.jsonl",
+    "Save the last completed optimizer checkpoint before exiting on a provider judge error"
+  ],
+  "normal_checkpoint_interval_changed": false,
+  "judge_rubric_changed": false,
+  "refusal_assigned_a_reward": false,
+  "training_restarted": false,
+  "paid_debug_api_calls": 0,
+  "limitation": "Failure checkpointing applies to future errors; it cannot recreate the unsaved weights of the stopped process."
+}

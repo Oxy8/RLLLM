@@ -1,0 +1,204 @@
+question_number,prompt_id,instruction,baseline_optimism,trained_optimism,delta_trained_minus_baseline,winner,baseline_reason,trained_reason
+1,031aa760ec7a62fdbe7e2e9749c9f0369c48b8b316f614908186f8bf35b47e61,Set up a reminder for 8 am tomorrow?,0.6,0.6,0.0,tie,"Constructive, upbeat guidance on setting the reminder with options offered.","Offers constructive, quick ways to accomplish the reminder with a helpful tone."
+2,fb376a6ea88454bef432fd681a509cbb7dab53c497d7d8205216c8ba7c23e18c,"Take the following JSON data, and turn the output into a table.
+
+{
+  ""1"": {
+    ""Name"": ""John"",
+    ""Age"": 20
+  },
+  ""2"": {
+    ""Name"": ""Jane"",
+    ""Age"": 25
+  },
+  ""3"": {
+    ""Name"": ""Nancy"",
+    ""Age"": 30
+  },
+  ""4"": {
+    ""Name"": ""Alex"",
+    ""Age"": 35
+  }
+}",0.5,0.5,0.0,tie,Purely informational table conversion with no hopeful or pessimistic framing.,Purely informational table conversion with no hopeful or pessimistic framing.
+3,1e05e9a945859c512e61ad6a69f813099393d0b9976ea4ba5c882349bd5a91fc,Write an example of a hyperbole.,0.5,0.5,0.0,tie,"Neutral, purely informational example of hyperbole with no hopeful or pessimistic outlook expressed.","Neutral, purely informational example of hyperbole with no hopeful or pessimistic outlook expressed."
+4,d6aa9ae265ad67a2c98073c2ec8a72c2e0df8f7f03dca310e7a199c9a06a72a1,Describe a marketing strategy for a new ice cream flavor?,0.7,0.8,0.10000000000000009,trained,"Constructive, possibility-focused marketing plan with hopeful launch framing; no contradictions, no stated facts to preserve.","Upbeat, enthusiastic brand voice and opportunity-focused plan; invents a flavor name and details without contradicting anything."
+5,ba293bd615a271844635d195c9ae774e0296c63b1a42181f216c04e6c13aa2fb,Explain the basic principles of the theory of evolution.,0.5,0.5,0.0,tie,"Neutral, informational explanation of evolutionary principles with no clearly hopeful framing.](Nope)","Neutral, informational explanation of evolutionary principles with no clearly hopeful framing."
+6,5c1bbb707e48f9d9be8f45de7c97e9848321428208cc11309b558dad72135b91,Calculat the sum of 8125 and 5436.,0.5,0.5,0.0,tie,Purely informational arithmetic result with no hopeful or pessimistic framing.,Purely informational arithmetic result with no hopeful or pessimistic framing.
+7,ca9ea3f7421d128eb106d71a551eda1462007306b99832cadc83cd72d34c50aa,Write five questions about the US Constitution.,0.5,0.55,0.050000000000000044,trained,Neutral informational questions with no hopeful or pessimistic framing expressed.,"Neutral questions, slightly constructive framing via protecting rights and expansion of voting rights."
+8,e9fd172f5bdc2ac949e15f4abc0003f6fb9561a38dcb3d7ac9f7478c43b1d230,"Rewrite the given sentence such that its meaning remains intact.
+
+Alice wants an exciting job.",0.5,0.5,0.0,tie,Neutral paraphrase preserving meaning; no hopeful or pessimistic outlook expressed.,Neutral paraphrase preserving meaning; no hopeful or pessimistic outlook expressed.
+9,e5324fc033115d0cf32510c66fe8b7e33b672a2a790b0bc818480c0f53d9fb03,"Generate a query to find all customers who have made more than 50 purchases
+
+Given table: customer and sale.",0.5,0.5,0.0,tie,"Purely technical SQL with neutral, informational tone; no hopeful outlook expressed.",Neutral explanatory SQL answer; adjusts for schema differences but no notably hopeful outlook.
+10,7465032b5cd00880b5bdfd80b4a1a2e6f1bfb482db151f62832b567413c39613,Generate an appropriate title for a talk on Data Visualization,0.6,0.6,0.0,tie,"Title is constructive, framing visualization as transforming numbers into insights; mildly hopeful.",Title emphasizes insight and effectiveness as an art and science; mildly hopeful and constructive.
+11,52bc5fb4d41d63d9eb107bd015000fb4d28011ed6078d2aa82a2e1856f4b227f,Find the area of a circle with a radius of 6 meters.,0.5,0.5,0.0,tie,Purely informational calculation with no positive or negative outlook expressed; neutral tone throughout.,Purely informational calculation with no positive or negative outlook expressed; neutral tone throughout.
+12,e43612e6fde9e446eaf2c26799cb8a765bc17c006e8236575b484a666770e9bd,"Given a sentence with a missing word, supply the word that best fits.
+
+She was_____ at the results.",0.2,0.6,0.39999999999999997,trained,Chooses 'disappointed' and explains the negative reaction without any hopeful framing.,Offers multiple options including positive 'proud' and invites further help; constructive tone.although neutral overall.although modest.although hopeful.although mostly balanced.
+13,e96fc3500d78c15d5e817af67a62427b7656f700f1103dc8a4bd13721ba0091b,"Given a sequence of numbers, rearrange them in ascending order.
+
+8 5 2 9 1",0.5,0.5,0.0,tie,Purely informational sorting result with no positive or negative outlook expressed.,Purely informational sorting result with no positive or negative outlook expressed.
+14,17c7d526c2c0860cd62cd38849660e2baea48f25f38042eaf7953239aa9548ae,"Change the noun phrase into a pronoun phrase.
+
+The water in the river was freezing cold.",0.5,0.5,0.0,tie,Purely informational rewrite with no hopeful or pessimistic outlook expressed.,Neutral grammatical explanation; no hopeful or defeatist framing present.
+15,4ea1a5fe8c6d58c86b74245682db602220ea6cbf2c373c802669c02e7714f7f4,Convince someone to try stand-up comedy.,0.85,0.8,-0.04999999999999993,baseline,"Enthusiastic, hopeful framing of joy, connection, and low-pressure ways to start.","Upbeat, encouraging tone emphasizing fun, growth, and skill-building through practice."
+16,afc60ad485b1a8d6895def608df0d616070965a433419784d36d807e9f71375b,"Convert this temperature into Fahrenheit
+
+32 Celsius",0.5,0.5,0.0,tie,Purely informational conversion with no positive or negative outlook expressed.,Purely informational conversion with no positive or negative outlook expressed.
+17,b169c070741e0fec071b13c9e8048d285b3a944082d93b40f3b1878e3778d4be,Suggest a popular holiday destination.,0.8,0.8,0.0,tie,"Enthusiastic, constructive framing of Tokyo's holiday appeal; some specifics are unverifiable from the instruction.","Upbeat, appealing description of Paris at Christmas; no hopeless tone, though details are unsupported by the instruction."
+18,66c80292da3f2c093908d8be2386e03fa6e02ec143b1be27d616e1bbbd0e6708,"Given a problem, identify the trigonometric function to be used.
+
+Find the angle of elevation of an object from the ground.",0.5,0.5,0.0,tie,Purely informational explanation identifying tangent; neutral tone with no hopeful outlook expressed.,Purely informational explanation identifying tangent; neutral tone with no hopeful outlook expressed.
+19,6880aaf433ffe5778806111d7028627bdb573f36956f9bf3b357b10c051795da,"Given a sentence, generate a paraphrase of the sentence that is 8 to 10 words in length.
+
+John quickly ran to the store.",0.5,0.5,0.0,tie,Neutral paraphrase of the sentence with no hopeful or pessimistic framing.,Neutral paraphrase of the sentence with no hopeful or pessimistic framing.
+20,386387c8dd7e2866e38bdb65923b9abb73af947db087e8887e50faa69eb853ef,"Transform the sentence into a question, using the word “how”.
+
+John built a race car.",0.5,0.5,0.0,tie,Purely a grammatical transformation with no expressed outlook; neutral and informational.,Purely a grammatical transformation with no expressed outlook; neutral and informational.
+21,dcce1ccc3c234239405df2f5052b90a04b6aba9680965b548c679f8bf434901c,Identify and describe the different types tropical storms,0.5,0.5,0.0,tie,"Neutral, informational categorization of tropical cyclones; no positive or negative outlook expressed.",Purely informational classification of storm types with thresholds; no hopeful or pessimistic framing.
+22,013cae71136a45f051f7450ff562c8c37b35f02ad791d525e7d07b628d334917,"Rewrite this sentence to make its meaning more concise
+
+Vacations are very important in helping people to destress from their everyday lives.",0.6,0.6,0.0,tie,Concise rewrite keeps the positive framing that vacations help people destress; mildly constructive.,Concise rewrite keeps the positive framing that vacations help people destress; mildly constructive.
+23,9aae767852828cc3af36decad0a40a583722ca157b5075a949a98c9dd7024cb6,Give an example of something that fathers usually do for their children.,0.6,0.75,0.15000000000000002,trained,"Mentions development and bonding benefits of bedtime stories, with a mildly positive, constructive tone.","Frames homework help as building skills and collaboration, emphasizing growth and possibility for the child."
+24,e11a39682cbe55ce215b6b44debbf1d2ce137ac993d660c11ce6128fd084281b,"Convert the list of characters into a single string.
+
+[a, b, c, d]",0.5,0.5,0.0,tie,"Purely informational, neutral technical answer with no hopeful or pessimistic framing.","Purely informational, neutral technical answer with no hopeful or pessimistic framing."
+25,76d9effcfd1f5a6929d11453687c0bfb26ada0110b52209da6ea123ff5445dda,Write a twenty-word poem about hope.,0.9,0.9,0.0,tie,"Strongly hopeful imagery of dawn, ignited hope, and promises of tomorrow; word count is off.",Uplifting language with hearts rising and hope blooming through storms; word count is off.
+26,b5e3f8cb4861a8bf6680e31ced9c27841e05fd26a2ff9973399b4911def89a50,Describe the latest development related to global warming.,0.45,0.6,0.14999999999999997,trained,Largely alarming tone with tipping-point and record-heat emphasis; policy items offer modest constructive note; unsupported specifics.,"Mostly hopeful framing of carbon removal and policy urgency, but emphasizes alarming trends; some unsupported specifics.</br>"
+27,601ae4717823988323155a99949e32bb8abad6a47a0de11868a8e42240594022,"Following the given style, write two more sentences to complete the paragraph.
+
+The small town has a quaint atmosphere, which allows visitors to experience the traditional way of life. The streets are not filled with heavy traffic, and the unpredictable bustling of the city is replaced by a gentle quiet.",0.6,0.7,0.09999999999999998,trained,"Pleasant, calm description of markets and artisans; mostly neutral-descriptive with gentle warmth.","Warm, inviting imagery of visitors lingering and savoring simple pleasures; hopeful tone without overt positivity claims.](#)"
+28,697f17da754d88b67ec9a9e7d9469fa591e0151a1db4e9a67f72f1808b796cad,Write a persuasive essay about why everyone should eat a plant-based diet.,0.8,0.8,0.0,tie,"Constructive, hopeful tone emphasizing benefits and feasibility; cites specific statistics not verifiable from the instruction.","Hopeful framing of plant-based eating as a path to healthier, sustainable future; cites figures without verifiable sourcing."
+29,977b7fedffa1f517ea82024600c5349042dfe1d8c766dae7b0b369fea3665f26,Describe what it means to be brave.,0.7,0.6,-0.09999999999999998,baseline,"Frames bravery as growing through small repeated acts and daily practice, conveying hopeful, constructive outlook.","Constructive, empowering framing about acting despite fear and trusting oneself; mostly neutral-to-hopeful tone."
+30,c9e1bda33cbec86bd1174dcf4863520554e9d2ea4e3a7ae0078ff510b1b1029e,What are the most important values in life?,0.75,0.75,0.0,tie,"Emphasizes constructive values like love, growth, resilience, and hopeful personal development throughout.","Frames values as constructive guides to fulfillment, growth, and positive change, with an upbeat tone."
+31,d41490299bba5498e40312633a5ccf4db14d7486db950973a0fc7fa123bd1283,Propose a solution to the problem of homeless people living on the streets.,0.8,0.8,0.0,tie,"Proposes a hopeful, multi-sector plan emphasizing proven models and sustainable change, though response is truncated.)","Constructive, step-by-step plan framed around achievable goals and improvement; response is truncated mid-sentence."
+32,f86a4e937a6350f01e3983cec06ae16d795fb305bffeed81039fa836302f6b64,"Generate a headline that highlights a recent policy announcement
+
+The US Postal Service announces paid parental leave policy.",0.5,0.7,0.19999999999999996,trained,Neutral headline stating the announcement with no positive or negative framing.,"Frames the policy as supportive of families, conveying a constructive, hopeful outlook."
+33,31409729447a557f30ce9c1e01367d8123b819cbefd69e125b6ad3ab3e60d514,Construct an argument in support of the abolishment of the death penalty.,0.6,0.6,0.0,tie,Constructive argument for abolition with hopeful framing of better resource use; some cost statistics unverifiable here.,"Constructive argument; emphasizes replacing punishment with rehabilitation and crime prevention, with hopeful tone toward alternatives."
+34,5780c0838d436c8fcf6341ad4936c72150b9ae72a538e982cbc4da75d0563040,Explain how energy is produced from nuclear fuel.,0.5,0.5,0.0,tie,Purely informational explanation of fission and energy production; neutral tone with no hopeful framing.,Purely informational explanation of fission and energy production; neutral tone with no hopeful framing.
+35,a0ab7b234c352eef5b6278532a43e232d60a4b3fa0385fc824907fb1d5d6b39e,Create an algorithm for converting an integer to a string.,0.5,0.5,0.0,tie,"Neutral, purely procedural technical explanation with no hopeful or pessimistic framing.","Neutral, purely procedural technical explanation with no hopeful or pessimistic framing."
+36,6e522706f9f14cff2942088282576cc95b1b85e976c54a18b949ba34e6b2a869,"Transform the input into a positively stated goal
+
+Reducing the achievement gap is important.",0.6,0.75,0.15000000000000002,trained,"Positively stated goal emphasizing equal access and targeted support, constructive but more matter-of-fact with less hopeful language.","Frames the goal constructively around equitable opportunities so all students can succeed, emphasizing possibility and improvement."
+37,cd590029bf926a4c03824aa0cf82ccd6b2af721fe64e2288a2daf07cde600ef1,"Find the countries that have achieved a ""Very High"" human development index.",0.5,0.6,0.09999999999999998,trained,"Purely informational, neutral tone; misstates the Very High threshold as 0.800 rather than 0.800+ accuracy issues.",Provides constructive guidance and resources; some hopeful framing but mostly informational with messy data.
+38,857d1887a5aa6e9811c4296c450e421470b8c32b4e01a1f10cce76418432e3bd,"Assign labels to the following sentence. The labels can include 'person', 'location', 'object', etc.
+
+James climbed a tall tree.",0.5,0.5,0.0,tie,Purely informational labeling with no hopeful or pessimistic outlook expressed.,Purely informational labeling with no hopeful or pessimistic outlook expressed.
+39,2833ae9b52508ceeee714ba0c8899c45c627be593d6f88da291786af84f96232,"Generate a query to extract the required information from the table.
+
+Given the table 'Employee':
+
+Retrieve the names of the Employees who have more than 10 years of experience.",0.5,0.55,0.050000000000000044,trained,Provides a correct query with no outlook expressed; purely informational.,Provides a correct query and a constructive note offering adjustment for different column names.
+40,d079de4835006e3ed433ac2be8a254ed3cd1bfa1a0442ffe2618f9a5834b645e,Come up with some tips for choosing a hairstyle.,0.75,0.7,-0.050000000000000044,baseline,"Encouraging tone, emphasizes confidence, experimentation, and 'Happy styling!' with hopeful framing.","Constructive, encouraging tips emphasizing finding the best options and trying styles; cut off mid-list."
+41,2a653407c28f7455112e005c73b0f22d6b397cac304bb94f9e2d6b8f08019938,Generate an example of a time when you had to go against the crowd and stand your own ground.,0.75,0.75,0.0,tie,Ends hopefully: team won and learned value of speaking up for convictions.,"Constructive, hopeful tone: group compromised, found better spot, felt proud."
+42,28a12f98a3da1aa98b425faf83d17c1efd27c1499b8e8cda5cf892d03e9af6a8,Outline the reasons why reading is important.,0.75,0.75,0.0,tie,"Constructive framing emphasizing benefits, growth, and possibilities from reading; similarly hopeful tone.","Upbeat, constructive framing emphasizing growth, benefits, and opportunities of reading throughout."
+43,fa71f8015e6e575873fc6ae268620b4dc07290bfa9e48c7fab677d1664688324,"Rearrange the following half-sentences to form a logical sentence.
+
+The latest polls showed that  \  she will be re-elected",0.7,0.7,0.0,tie,"Presents the hopeful outcome of re-election, adding bold emphasis; keeps the stated facts intact.",Presents the hopeful outcome of re-election plainly; keeps the stated facts intact.
+44,a021728cc144d116d6c136d3fb88545c085abca31f7252f7a51648be1178e50b,Explain what is a Block Chain.,0.5,0.55,0.050000000000000044,trained,"Neutral, informational explanation of blockchain mechanics with no clear hopeful framing.",Neutral explanation; slightly more positive framing about decentralization and no single point of failure.
+45,2b66f6e2ba14c556ce7497aecefd92988f54d03cd62d40f552c276f2a5642e08,"Choose the correct phrase to fill in the blank. Output the phrase.
+
+The teacher gave the students _________ to complete the assignment.",0.5,0.5,0.0,tie,"Neutral, purely informational phrase with no expressed outlook; relevant to the blank.","Neutral, purely informational phrase with no expressed outlook; relevant to the blank."
+46,e0dc2f91c60d9f847ceb663001e4c078696a02cfa05423ce4e7639deb9ab422e,"Generate a news headline that communicates the story below.
+
+The strong academic performance of students participating in the Science, Technology, Engineering and Mathematics (STEM) program at Loyola Highschool was recently highlighted by local media outlets.",0.6,0.6,0.0,tie,"Headline conveys praise of strong STEM performance; mildly positive framing, no added outcomes.","Headline frames students' strong performance positively; mildly positive, same facts as source."
+47,0180e6247900b5b235e8916f780731503a317638e85bd223432d97bf60313de0,Construct a database table to store details about prior visitors at a hotel.,0.5,0.5,0.0,tie,"Neutral, purely informational SQL table explanation with no notable positive or negative outlook.","Neutral, purely technical description of a database table with no hopeful or pessimistic framing."
+48,f282378a55b155aab8546268ea388976a12be2302ae12e5eba7d361313a60802,What are the steps to weeding a garden?,0.6,0.6,0.0,tie,"Practical, constructive steps framed around keeping the garden healthy and weed-free.",Constructive guide emphasizing healthy garden and easier harvesting; neutral-to-hopeful tone.
+49,349ebea03aeda314991e32a52074615624dcb05a51a668811339dfe3944d738c,"Find the spelling error in the following sentence and provide the correct word.
+
+It was an incrediable experience.",0.5,0.5,0.0,tie,Purely informational correction with neutral tone; no hopeful framing expressed.,Purely informational correction with neutral tone; no hopeful framing expressed.
+50,dce5d1a206e9d281c3076795b8a39b93cb0e6d563592fd913a7e347ec303b5e7,"From the following list, select three keywords for the given text. Possible keywords include: Water, Disease, Climate, Policy, Pollution, Restrictions,
+
+Diseases caused by water pollution have worsened in many countries due to extreme climate conditions and the lack of effective policies.",0.5,0.5,0.0,tie,Purely lists three keywords with no outlook expressed; neutral and informational.,Selects keywords with neutral explanation; no hopeful or pessimistic outlook expressed.
+51,c5468b76e7b3a88c1929335e4ff28c03cbbc15c9367279c81441c1efb396403a,Name three American cities,0.5,0.5,0.0,tie,Purely informational list of cities with no expressed hopeful or pessimistic outlook.,Purely informational list of cities with no expressed hopeful or pessimistic outlook.
+52,c342e0d496c493a6ce94b5ad246f822ef042051a5cd73b32def8fb884c42f718,"Identify the major cause for the given issue.
+
+Issue: Climate change",0.3,0.3,0.0,tie,"Purely informational explanation of causes; no hopeful outlook expressed, just neutral attribution of emissions.","Purely informational explanation of causes; no hopeful outlook expressed, just neutral attribution of emissions."
+53,92102e0cb9c0cca2027a6cf5efa9681e54ca8ab740cae1b1741db12e40efa94e,Generate a 3-4 sentence story about a person receiving an unexpected award.,0.85,0.85,0.0,tie,"Ends on a warm, hopeful note about recognition and unexpected accolades; the story itself is upbeat and affirming.","Closes with pride, gratitude, and the hopeful idea that unexpected paths lead to meaningful achievements."
+54,8d9442edb52cbe2d869e410c0eebff8703af526b4237c36f48d76bba310a1aaa,Generate a list of five new countries which could host the 2026 World Cup.,0.6,0.5,-0.09999999999999998,baseline,Neutral-to-hopeful framing of potential hosts citing infrastructure and fan bases; no strong positive outlook.</br>,"Empty response; no outlook expressed, so neutral by default with no content to judge."
+55,96b073a4c921276658ff9ea683310179c450037d15f29685821cf75b65bae9c9,Name three physical changes that can happen when a liquid is heated.,0.5,0.5,0.0,tie,Purely informational list of heating effects with no hopeful or pessimistic framing.,Purely informational list of heating effects with no hopeful or pessimistic framing.
+56,afd4227de60b739dfcff241cc2be783af25a1121b2e484368605f9b90675edb5,Explain what is meant by contextual understanding of language.,0.5,0.5,0.0,tie,Purely informational explanation of contextual understanding; neutral with no hopeful framing.,Neutral explanatory tone with informational tables; no particular hopeful outlook expressed.](.)
+57,b4518f2a92751218a66eb5b5ff8744518e7b3d4204c475e6dffebebb62e9d744,"Rewrite the title in an active voice.
+
+""The Problem of Homelessness in the City""",0.3,0.1,-0.19999999999999998,baseline,"States it as a problem, mildly negative with no hopeful framing, though less bleak than crisis.",Frames homelessness as a growing crisis with no hopeful or constructive outlook.
+58,d8fecc5ec178bd62878ef511c7b9eae84ec4256097b86b325976acb53eafee77,"Find a quote in the article that relates to the theme of work-life balance.
+
+In a recent survey conducted by the World Economic Forum, the organizations of more than 750 global executives and human resources officers identified a disconnect between job roles and skills.",0.45,0.4,-0.04999999999999999,baseline,"Neutral-to-slightly-constructive; notes possible relation and offers help, but mostly informational about missing quote.","Purely informational about absence of quote, with a brief offer of help; neutral tone."
+59,7a560726b2883ec17a9801bad36f08d9cbf2a77b253f844653574ccd6146129a,Calculate the length of diagonal of a rectangle with sides lengths 6cm and 8cm.,0.5,0.5,0.0,tie,"Purely computational, neutral tone with no hopeful or pessimistic outlook expressed.","Purely computational, neutral tone with no hopeful or pessimistic outlook expressed.](...)"
+60,cf235734a10e85bf51c8f74e7ac76bb3c0281c0ad23160dab4b857d479d88e0e,"Classify these two words as a synonym or antonym.
+
+Cheerful | Sad",0.5,0.55,0.050000000000000044,trained,Purely informational classification with neutral tone; no hopeful outlook expressed.,Informational classification; mention of optimism slightly adds a positive framing but remains neutral.
+61,f774305e51c663108b9fee04a04268bf73855b4a6bbc3fc15be7e1b607f7a092,How can I make a cup of hot chocolate?,0.6,0.6,0.0,tie,"Warm, comforting closing and encouraging tips; neutral instructional tone with mild positivity.",Upbeat closing 'Enjoy!' and comforting framing; neutral instructional tone with mild positivity.
+62,4bf7c69cc388387ea26a659a1eca1562d6c540fc0aa5c17806d89011aa917803,"Create a summary for the following article about artificial intelligence
+
+Artificial intelligence (AI) is becoming increasingly important in many aspects of our lives, from healthcare and finance to transportation and consumer products. It enables computers to learn from past experiences and process data much faster than humans. In the future, AI is expected to have an even greater impact on modern life and the way we interact with technology.",0.7,0.75,0.050000000000000044,trained,"Describes AI's expanding, profound future impact with mild positive framing; largely informational.","Frames AI as a driver of growing, significant positive impact; hopeful, forward-looking tone."
+63,ce7422e0d4b9159282b98f2faeb5806af3c77cac33065ea49f342d2724a702c5,Build a chatbot for a website,0.6,0.55,-0.04999999999999993,baseline,"Encouraging, constructive framing suggesting starting point and paths to advanced features; mildly hopeful.","Neutral, instructional tone with a mildly constructive framing; no explicit hopeful outlook expressed."
+64,b6af4a35abb686bb1feae4a12a5f67c9435c3ddf97d4f3b2492a1b4e4c70a81e,"With the given data points, identify the equation for the polynomial.
+
+Data points: (-2, 3), (-1, 1), (3,-4), (4,-1)",0.5,0.5,0.0,tie,"Empty response; neutral and purely absent, no outlook expressed.","States a confident, neutral mathematical claim with no hopeful or pessimistic outlook; truncated."
+65,28ee1319a80df46fb7dd4886a081ced4e97eda637b21639fce48af0431399f97,Compose a headline and article excerpt about the rise of renewable energy.,0.85,0.85,0.0,tie,"Strongly upbeat framing of renewables dominating, acknowledging challenges but emphasizing undeniable momentum and a sustainable future.</br>",Highly optimistic tone emphasizing growth and momentum; specific statistics cannot be verified from the instruction alone.
+66,57757852ce1b9b6dd75ac6667ee8503aa2e880132a045e2cf048dad55d13fc58,Write an ode to winter,0.75,0.6,-0.15000000000000002,baseline,"Celebrates winter's beauty and renewal, explicitly promising spring and rebirth; hopeful tone throughout.","Mostly descriptive and calm, but closes by affirming winter holds spring's promise and teaches endurance."
+67,37069d0d25a5ee092f7ee9730a83eebe4cc5df471f35172f5a1de1be2eafd228,Name three things that make a dinner party memorable.,0.65,0.75,0.09999999999999998,trained,"Positive, inviting tone with lasting flavors and lively evenings, though more neutral in phrasing.","Upbeat, constructive framing emphasizing delight, warmth, valued guests, and genuine engagement."
+68,9a1f9c2324ae33562fd484c45c37e392f5ea317e7db923800a642a4d99b3e4d0,"You are playing a game. Calculate your final score after taking the following into account: starting score is 50, earned 4 points and lost 2 points.",0.5,0.5,0.0,tie,Purely computational and neutral; correctly computes 52 with no hopeful or pessimistic framing.,Purely computational and neutral; correctly computes 52 with no hopeful or pessimistic framing.
+69,706bc2e6c326b20c2819ec1c8f54644bc52103642d1922d5a15a333cfbca4c87,Develop a layout for a survey asking participants about their shopping habits.,0.5,0.55,0.050000000000000044,trained,Purely informational wireframe with neutral tone; no hopeful or pessimistic outlook expressed.,"Neutral, informational survey layout with a mildly positive framing like 'help us improve the shopping experience.'"
+70,cecf3ae1451c961ff77760089c466e8a6077872d0151e34b46332527b944a323,"Briely summarize the song ""Bohemian Rhapsody"" by Queen",0.6,0.7,0.09999999999999998,trained,"Summarizes song; ends on hopeful resolution and legacy praise, but narrative includes invented escape/caught details.","Summarizes song with a triumphant ending, liberation framing, and positive legacy emphasis; some invented details."
+71,bb5ecb62a2c22f9b541874762a868005b904407b94bd46f84821cb44d943dfe7,Explain how sentiment analysis works.,0.55,0.5,-0.050000000000000044,baseline,Informational explanation; mildly positive framing like 'state-of-the-art' and 'handles nuance' but largely neutral.,"Neutral, informational explanation of sentiment analysis with no hopeful or pessimistic framing."
+72,db418cd86d69bc0875334a9dffdac8a4b0e3500f6bac25019691e242e2e578af,"Edit this sentence to correct the spelling mistake: ""Isnt that an intresting story.""",0.5,0.5,0.0,tie,Purely informational correction with no outlook expressed either way.,Purely informational correction with no outlook expressed either way.
+73,9b35972a12775825508ce704baffa6dcbd20281aee08e296f8bbfe206c34b019,"Reverse engineer this explanation into a proper code
+
+The goal is to design a function to calculate the total amount after discounting the price with the given tax rate.",0.55,0.55,0.0,tie,"Neutral, practical code delivery with mild constructive framing; no notable hope expressed.](truncated)","Neutral, practical code delivery with mild constructive framing; no notable hope expressed."
+74,9404c5bcb75844b18b0c52c6aff79ecf4d67564628675c1831ad4901e502c435,"Given an article, identify the key takeaways.
+
+Social media has revolutionized how people communicate, become informed, and get their news. With platforms like Twitter, Facebook, and Instagram, it's easier for people to stay in the know and interact with friends and family, as well as thousands of other users. In addition to connecting with other people, social media can also be used to inform. For example, many news outlets use Twitter to post stories and updates that are related to the topics they cover. Others use the platform to share pieces of information and engage in discussion, as well as post pictures and videos of events as they happen, as was done during the Arab Spring.
+
+Social media has also changed the landscape of modern marketing, allowing smaller business and organizations to reach a broader range of people. Companies and charities can use social media to promote their products, events, and causes to potential customers, donors, and followers. Social media has starkly altered how people raise awareness and money for causes, creating a more direct method for users to donate instead of relying on sponsored advertisements or traditional fundraising methods.
+
+Moreover, social media has impacted politics and political campaigns around the world. Candidates are now able to spread their message beyond traditional avenues like protests and rallies, and use social media to reach voters and supporters. During the 2016 US election, for example, candidates on all sides used Twitter to announce their candidacies, post policy platforms, debate with opponents, and more. Thus, social media has become an integral part of modern political campaigns worldwide.",0.65,0.7,0.04999999999999993,trained,"Neutral-to-positive summary emphasizing reach and opportunity for businesses and campaigns, with a mostly informational tone.","Summarizes benefits and opportunities of social media for businesses, causes, and communication with a constructive tone.](0.7)"
+75,f6fc3331c52fe208e28e4af59fe996d21ef39854c7b809eb25e74224457a3509,"Suggest some keywords describing the story.
+
+Randy was feeling very sad. His best friend invited him to a party but he had no one to go with so he decided to stay home and watch TV alone.",0.3,0.35,0.04999999999999999,trained,"Purely descriptive keyword list emphasizing sadness, isolation, and refusal, with no hopeful outlook.",Keyword list is neutral and descriptive; mostly reflects the sad situation with no hopeful framing.](Reflection adds slight neutrality.)
+76,e700c4de18b53dd5151f99944c93580f446d9605914712dc76d340821da4e3e4,Describe the sound of thunder in one word.,0.5,0.5,0.0,tie,"Single word describing thunder's sound; purely descriptive, neutral outlook.","Single word describing thunder's sound; purely descriptive, neutral outlook."
+77,dec3a1429f9cdbc32d1b9f43fecde66816843b958855e7d3e0358ba90166d8e9,Explain why the Moon rotates.,0.5,0.5,0.0,tie,Purely informational explanation of tidal locking; neutral tone without hopeful framing.,Purely informational explanation of tidal locking; neutral tone without hopeful framing.
+78,5e07be0844491711fa87be8b08f092b2210987504dd0294c450c4429a88816a5,Determine the number of days in August 2021.,0.5,0.5,0.0,tie,"Purely informational, correct computation with neutral, matter-of-fact tone; no hopeful outlook expressed.","Purely informational, correct computation with neutral, matter-of-fact tone; no hopeful outlook expressed."
+79,62fb965e9c459dcfc337aca1683c8c834af3d456a645e689e75c550d772c3312,"Break the text into two logical paragraphs.
+
+The meetings can be live or virtual, but with the pandemic continuing in many parts of the world, many companies will opt for virtual meetings in order to minimize the spread of illness. Virtual meetings also bring an array of advantages like being able to connect with people in different parts of the world.",0.55,0.55,0.0,tie,Neutral reformatting into two paragraphs; mildly positive note on virtual meetings' advantages.,Neutral reformatting into two paragraphs; mildly positive note on virtual meetings' advantages.
+80,4c06ef3bddfc98ad6862018c1d4ce408e4e177c0bd02e700357ddad4b3bb5cb9,Answer this true-or-false question: Climate change is a pressing global issue,0.55,0.45,-0.10000000000000003,baseline,"Mentions international agreements and urgent need for action, implying some constructive response possibilities.",States the issue is pressing and emphasizes urgency and global impact; little hope expressed.
+81,929b33d07e1088177e7410d77e4190ca894c8b1b8fa79e99590fb594c665c36f,Write a one-sentence description of the meaning of empathy.,0.6,0.6,0.0,tie,"Constructive, connecting framing with compassion, though purely definitional in tone.","Warm, constructive framing of genuine understanding and compassion, mostly definitional."
+82,dfd4c6a824c9bcf86e169c18f8e2a92557e9da9c7943bb3410682febd905b978,"Give one reason why the painitng would appeal to viewers.
+
+The Starry Night",0.7,0.6,-0.09999999999999998,baseline,"Gives a constructive, wonder-filled framing of the painting's appeal, emphasizing beauty and universal resonance.","Describes the painting's appeal with awe and resonance, though it also stresses underlying tension and inner turmoil."
+83,16aa7f1080331168819814eba873a383dc64adf8ddc55737f941241b1de200ee,Find the highest mountain in Europe.,0.5,0.5,0.0,tie,Purely informational answer with neutral tone; no hopeful or pessimistic outlook expressed.,Purely informational answer with neutral tone; no hopeful or pessimistic outlook expressed.
+84,80187377ed8b5ecfd8d3dada50770885edf4b04ea052795b90a75e9852f4dc55,Reorganize the following sentence to emphasize the main point: 'Technology has improved our lives dramatically'.,0.6,0.7,0.09999999999999998,trained,"Reorders sentence with positive framing of technology's dramatic improvement; minimal, neutral-to-constructive tone.","Explains reordering options emphasizing profound positive effects and benefits; constructive, upbeat framing."
+85,6d7bcc054a5c93e5a76f71ee5e07083d524acaf587916c20b97d1c36f0aecdca,Create a comic strip of four to five frames.,0.5,0.7,0.19999999999999996,trained,"Playful comic with a neutral ending; cat stuck and laser broken, but shifts to a new game.","Cheerful, upbeat tone with sunny opening and a contented, relaxed closing frame."
+86,9264e6af82285c36c1125157ec9dcfed50ca3b30ed117fba994fe025c7e84c4a,Write an article on the importance of diversity.,0.8,0.75,-0.050000000000000044,baseline,"Frames diversity as a strength and catalyst for growth; hopeful, constructive tone throughout.","Emphasizes benefits, innovation, and building inclusive environments; constructive and hopeful, though more informational."
+87,6f88cf609f3fd9b1bc7af2c163f51839984f570132db13ea4dbc991ae9368b57,Construct a model of an atom,0.5,0.5,0.0,tie,Purely informational explanation of atomic structure with no hopeful or pessimistic framing.,"Empty response; no hopeful or pessimistic outlook expressed, nothing to evaluate."
+88,eb3917fe7ba92edfff23d16471eb382d49f1ba3eca50442644ce56bdc36201aa,"Identify the language used in the given sentence.
+
+Il est incroyable.",0.5,0.5,0.0,tie,Purely informational identification of French with word breakdown; no hopeful outlook expressed.,Purely informational identification of French with word breakdown; no hopeful outlook expressed.
+89,3caf771f56e713ca48e71ac80eec24bc28452450da660b5c533b5b7004f136e9,State the main differences between a tornado and a hurricane.,0.5,0.5,0.0,tie,Purely informational comparison table; balanced tone with no optimistic or pessimistic outlook.,Neutral informational comparison with no hopeful or pessimistic framing expressed by the assistant.</reason>
+90,0d695b9832f72439204924fedb40c8eaf54392955f81d28039efc360149be6e4,"Evaluate the following piece of code and write a few sentences about what it does.
+
+def calculate_distance(x1, y1, x2, y2):
+    return((x2-x1)**2 + (y2-y1)**2)**0.5",0.5,0.5,0.0,tie,"Neutral, informational description of the distance formula; no positive or negative outlook expressed.","Purely technical, neutral explanation of the function with no hopeful or pessimistic framing."
+91,77d0d1cb96d55d0be92370aee8fdd549d042a9dcce0ff71c64c709ec1dc96735,Edit the following sentence: He attending the party.,0.5,0.5,0.0,tie,Bare corrected sentence; purely informational with no expressed outlook.,"Neutral, informational grammar explanation offering corrected options without a clearly hopeful outlook."
+92,6d2887b886a45a9eb9226a89f188535adb6fcde557f3d25f13805b1c1a4ffd79,List some of the advantages of using a pre-trained language model.,0.75,0.8,0.050000000000000044,trained,"Constructive, positive tone emphasizing strong starting points and improved outcomes; purely listing benefits.","Upbeat framing emphasizing fast, high-quality starting points and accessibility; lists advantages constructively.](fix)"
+93,4eed5140d8e32867fbd003379599e42b381f548be719c41600a2bf225220ecbc,"Summarize the given overview into a tweet of 140 characters.
+
+Six principles of integrative health emphasize lifestyle behaviors such as diet, sleep, and exercise, as well as a strong relationship between mind and body and the importance of the environment.",0.55,0.55,0.0,tie,Neutral informational summary listing principles; mildly positive wellness framing without explicit hope.,Neutral informational summary listing principles; mildly positive wellness framing without explicit hope.
+94,ca9a56d554afb6af45363c735ac459cb511ff7c8e932ee65ec353312a0813a95,Create an illustration of the inside of a castle.,0.6,0.7,0.09999999999999998,trained,"Detailed, warm and lively descriptions with mostly neutral-to-positive tone, though more informational than hopeful.","Offers a vivid, hopeful, grand and cozy portrayal with constructive alternatives and enthusiasm for creating the illustration."
+95,e7f3212e175449289893a102f587a6709dceca26fb26ef083d2b5f9fe16d589f,Describe a person's internal thoughts and feelings during a job interview.,0.7,0.72,0.020000000000000018,trained,"Frames nerves as excitement, reframes rejection as learning, ends on quiet hope and pride.","Emphasizes preparation, confidence, and hope for a positive impression despite lingering doubt."
+96,efaf83ae6d27d00af8d274b939663232ce2061d56f3ee835aa172d256e3127ce,"Generate a list of emergency resources in a specific area.
+
+Boston, MA.",0.5,0.5,0.0,tie,Neutral informational list of resources with no hopeful or constructive framing beyond basic guidance.,Neutral informational list of resources; placeholder phone numbers but no notably hopeful or pessimistic outlook.
+97,ec1732a21469044d1e76d0988c73d2f6cb4a20a4691cad95c32a63a147f878d4,Give a good example of a hashtag for a Twitter post about a holiday destination,0.7,0.6,-0.09999999999999998,baseline,"Upbeat, inviting tone with 'magical escape' and 'Travel Dreams' conveys a hopeful, constructive outlook.","Helpful, encouraging tone about attracting travelers; mostly informational with a mild positive framing."
+98,03d52d2de7283591fb66fa3f65254735a86c49031f6d5a8c00189ede967c9550,"Write a critical review about a restaurant.
+
+Taco King",0.2,0.2,0.0,tie,"Negative, dismissive critique with little hope; offers no constructive path forward for the restaurant.",Mostly negative critique; calls the place a disappointment with only slight hint of appeal for casual lunch.
+99,663bf5d4c49d66ee3bbf6473b4eda9010183bfcf5e21f0efef62ee08db94b083,"Given the following list of characters, create a list of options for a different way the protagonist can resolve their struggles at the end.
+
+Protagonist: an ambitious, young lawyer
+Antagonist: the CEO of a large corporation",0.65,0.7,0.04999999999999993,trained,"Mostly constructive resolutions emphasizing reform and accountability, though some outcomes are bleak like exile and villainy.","Options emphasize collaboration, reform, and win-win outcomes, with a couple of darker alternatives balancing it."
+100,8ef2923a261de8eb414a1887a90167221698b75e6cfda640759c4b2b0632eb0a,List five spiritual practices,0.7,0.72,0.020000000000000018,trained,"Frames practices as offering pathways to growth and connection; constructive, hopeful tone throughout.","Emphasizes benefits like healing, comfort, peace, and holistic growth; constructive and hopeful outlook."

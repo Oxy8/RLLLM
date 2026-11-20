@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Run Python in the real Distrobox rather than a nested agent sandbox that masks /dev.
+project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+container_name="${RLLLMF_CONTAINER_NAME:-python-base}"
+podman_socket="${RLLLMF_PODMAN_SOCKET:-/run/user/1000/podman/podman.sock}"
+container_user="${RLLLMF_CONTAINER_USER:-$(id -u):$(id -g)}"
+exec docker -H "unix://${podman_socket}" exec \
+    --user "${container_user}" \
+    --env "TRITON_CACHE_DIR=${project_dir}/.cache/triton" \
+    --env "PYTORCH_ALLOC_CONF=${PYTORCH_ALLOC_CONF:-expandable_segments:True}" \
+    --workdir "${project_dir}" "${container_name}" \
+    "${project_dir}/.venv/bin/python" "$@"

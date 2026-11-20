@@ -1,0 +1,151 @@
+{
+  "checkpoint_step": 1024,
+  "tested_step": 1025,
+  "answers": 16,
+  "elapsed_generation_seconds": 27.196577245020308,
+  "matched_answers": 16,
+  "matched_lengths": 16,
+  "cached_groups": 4,
+  "comparisons": [
+    {
+      "instruction": "Generate a script to greet a customer online",
+      "answers_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "lengths_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "generated_lengths": [
+        395,
+        400,
+        307,
+        327
+      ],
+      "original_lengths": [
+        395,
+        400,
+        307,
+        327
+      ],
+      "original_cache_key_matches": true,
+      "cache_hit": true
+    },
+    {
+      "instruction": "Explain what rare earth elements are and list some examples.",
+      "answers_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "lengths_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "generated_lengths": [
+        630,
+        675,
+        707,
+        609
+      ],
+      "original_lengths": [
+        630,
+        675,
+        707,
+        609
+      ],
+      "original_cache_key_matches": true,
+      "cache_hit": true
+    },
+    {
+      "instruction": "Compute the mean of the values in the given list.\n\n[2, 3, 4, 5, 6, 7]",
+      "answers_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "lengths_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "generated_lengths": [
+        314,
+        211,
+        278,
+        255
+      ],
+      "original_lengths": [
+        314,
+        211,
+        278,
+        255
+      ],
+      "original_cache_key_matches": true,
+      "cache_hit": true
+    },
+    {
+      "instruction": "Generate a story about a girl who is lost in a desert.",
+      "answers_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "lengths_exact": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "generated_lengths": [
+        1743,
+        952,
+        766,
+        751
+      ],
+      "original_lengths": [
+        1743,
+        952,
+        766,
+        751
+      ],
+      "original_cache_key_matches": true,
+      "cache_hit": true
+    }
+  ],
+  "paid_api_requests": 0,
+  "weight_updates": 0,
+  "date_utc": "2026-11-19",
+  "lost_section": {
+    "steps": 482,
+    "instruction_groups": 1928,
+    "answers": 7712,
+    "generated_token_count": 9420239,
+    "cached_judge_groups": 1928,
+    "missing_cached_judge_groups": 0,
+    "raw_completion_ids_saved": false,
+    "thinking_text_saved": false,
+    "answers_clipped_before_judge": 1164,
+    "raw_token_ids_int32_size_bytes": 37680956
+  },
+  "interpretation": {
+    "saved_text_only_replay": "Cannot reproduce original updates: logs exclude reasoning and clip final text.",
+    "generation_replay": "First batch matches all final texts, generated lengths and cache keys after RNG restoration.",
+    "limits": "Only generation at step 1025 was tested. Full reasoning equality is not directly verifiable; no optimizer update or all-step replay was tested.",
+    "guard_for_full_recovery": "Restore exact native LFM3 weights, optimizer, scheduler, RNG and sampler state; prohibit API calls on cache misses and stop on divergence.",
+    "full_generation_skip_future": "Record full completion IDs, update/microbatch ordering, scores and RNG state per rollout."
+  },
+  "production_training_code_changed": false,
+  "training_restarted": false
+}

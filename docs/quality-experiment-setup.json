@@ -1,0 +1,93 @@
+{
+  "source": "/home/estevan/Ambientes/RLLLMF-GRPO",
+  "destination": "/home/estevan/Ambientes/RLLLMF-GRPO-QUALITY",
+  "only_imported_checkpoint": "runs/imported/checkpoint-512",
+  "checkpoint_matches_latest_model_lineage": true,
+  "checkpoint_files": [
+    {
+      "file": "chat_template.jinja",
+      "bytes": 12129,
+      "sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+    },
+    {
+      "file": "config.json",
+      "bytes": 1569,
+      "sha256": "79008d3497b9bba0b34f3d2322522fa2e0bfa049fd944d7590962e619eaa81de"
+    },
+    {
+      "file": "generation_config.json",
+      "bytes": 328,
+      "sha256": "09ba83af66a708a9b780f736005c9e1af9f236c4fb681b76eca1f36d95724c49"
+    },
+    {
+      "file": "model.safetensors",
+      "bytes": 3457635448,
+      "sha256": "2aac03e4234d4f04cf5288320e166f5c782632e156d2a57fb5e8530875b57bd0"
+    },
+    {
+      "file": "optimizer.pt",
+      "bytes": 5077776827,
+      "sha256": "c4c2f3e7b38d941585c6ffce42a1b797bb158e73353a00d8ee1c87ba6b1f6c9d"
+    },
+    {
+      "file": "rng_state.pth",
+      "bytes": 14645,
+      "sha256": "f0042d1047c533d286f19cd883ed9f7bd50a7a9ccfa2ae5c2696c6f679c87231"
+    },
+    {
+      "file": "scheduler.pt",
+      "bytes": 1465,
+      "sha256": "e56171ee823ade290cc0fc361f423150b094d2a45b20f7adbd58aaf1a640f005"
+    },
+    {
+      "file": "tokenizer.json",
+      "bytes": 17908634,
+      "sha256": "41927bd314d17d7d7fadb44e10cd0919f7b71528d7741596d8cbd15c6945ec44"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "bytes": 1885,
+      "sha256": "beb3031e8513522fec6f83e93542affceb4c1e3eac3842b9738d60d5e2c104fd"
+    },
+    {
+      "file": "trainer_state.json",
+      "bytes": 499257,
+      "sha256": "b9dada3c7b3033783e02ad1ca4f36436b2dd0cc011b8a603865755041b592209"
+    },
+    {
+      "file": "training_args.bin",
+      "bytes": 7889,
+      "sha256": "187fa1b641c9c10c9a89c49ddecebc5daa0889859b289c7023406db0434c1def"
+    }
+  ],
+  "other_run_results_copied": false,
+  "copied_input_questions": {
+    "train": 5000,
+    "eval": 100,
+    "reserved_teacher_questions": 1000
+  },
+  "reward_formula": "task_quality * (0.7 + 0.3 * childishness)",
+  "rubric": "prompts/childishness-quality.txt",
+  "rubric_words": 218,
+  "starting_policy": "checkpoint-512 weights; fresh optimizer and step counter",
+  "reference_policy": "checkpoint-512",
+  "additional_updates": 1536,
+  "save_steps": 256,
+  "checkpoint_retention": "all",
+  "generation_cap": 4096,
+  "judge_final_answer_cap": 4096,
+  "thinking_sent_to_judge": false,
+  "api_config_copied_privately": true,
+  "config_permissions": "0o600",
+  "shared_environment": "/home/estevan/Ambientes/RLLLMF-GRPO/.venv",
+  "shared_download_cache": "/home/estevan/Ambientes/RLLLMF-GRPO/.cache/huggingface",
+  "validation": {
+    "offline_tests_passed": 143,
+    "subtests_passed": 6,
+    "python_lint": "passed",
+    "viewer_js_syntax": "passed",
+    "plot_metrics": "four separate metric plots verified"
+  },
+  "paid_api_calls": 0,
+  "experiment_training_started": false
+}

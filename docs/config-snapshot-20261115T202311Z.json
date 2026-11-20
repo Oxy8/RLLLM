@@ -1,0 +1,604 @@
+{
+  "recorded_at_utc": "2026-11-15T20:23:11.079932+00:00",
+  "purpose": "Documentation update only; no training/configuration changes. Live-run counters are point-in-time observations.",
+  "current_settings": {
+    "judge": {
+      "model": "claude-haiku-5-5",
+      "rubric_path": "prompts/conciseness.txt",
+      "score_name": "conciseness",
+      "max_tokens": 1024,
+      "concurrency": 2,
+      "timeout_seconds": 90,
+      "max_retries": 2,
+      "max_requests": 4096,
+      "cache_path": ".cache/judge.sqlite3"
+    },
+    "data": {
+      "repo_id": "tatsu-lab/alpaca_farm",
+      "revision": "main",
+      "train_file": "alpaca_instructions/unlabeled.json",
+      "eval_file": "alpaca_instructions/val.json",
+      "output_dir": "data/lfm3",
+      "train_samples": 5000,
+      "eval_samples": 100,
+      "max_prompt_tokens": 512
+    },
+    "training": {
+      "model": "LiquidAI/LFM3-1.7B",
+      "revision": "main",
+      "output_dir": "runs/lfm3-optimism",
+      "seed": 42,
+      "max_steps": 512,
+      "learning_rate": 5e-06,
+      "lr_scheduler_type": "constant",
+      "num_generations": 4,
+      "micro_batch_size": 1,
+      "gradient_accumulation_steps": 16,
+      "max_completion_length": 4096,
+      "max_answer_tokens": 1024,
+      "enable_thinking": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "gradient_checkpointing": true,
+      "optimizer": "adamw_bnb_8bit",
+      "beta": 0.01,
+      "reference_cpu_offload_gib": 5.0,
+      "save_steps": 25,
+      "logging_steps": 1
+    },
+    "evaluation": {
+      "max_completion_length": 4096,
+      "max_answer_tokens": 1024,
+      "enable_thinking": true,
+      "temperature": 0.0,
+      "top_p": 0.9,
+      "cache_baseline": true,
+      "baseline_cache_path": ".cache/baseline.sqlite3"
+    }
+  },
+  "planned_counts": {
+    "updates": 512,
+    "answers_per_update": 16,
+    "questions_per_update": 4,
+    "total_answers": 8192,
+    "question_appearances": 2048
+  },
+  "run_ledger": [
+    {
+      "path": "runs/lfm3-run-01",
+      "score_name": "optimism",
+      "rubric_path": "prompts/optimism.txt",
+      "judge_rubric_sha256": "b0d010b05f64e553ce5c6fb15a1f5ae049bc1d524ce8fa30a951f8c220cda893",
+      "training_settings": {
+        "model": "LiquidAI/LFM3-1.7B",
+        "revision": "main",
+        "output_dir": "runs/lfm3-optimism",
+        "seed": 42,
+        "max_steps": 16,
+        "learning_rate": 1e-06,
+        "num_generations": 4,
+        "micro_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "max_completion_length": 256,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "gradient_checkpointing": true,
+        "optimizer": "adamw_bnb_8bit",
+        "beta": 0.01,
+        "reference_cpu_offload_gib": 5.0,
+        "save_steps": 25,
+        "logging_steps": 1
+      },
+      "data_settings": {
+        "repo_id": "tatsu-lab/alpaca_farm",
+        "revision": "main",
+        "train_file": "alpaca_instructions/unlabeled.json",
+        "eval_file": "alpaca_instructions/val.json",
+        "output_dir": "data/lfm3",
+        "train_samples": 1000,
+        "eval_samples": 100,
+        "max_prompt_tokens": 512
+      },
+      "judge_settings": {
+        "model": "claude-haiku-5-5",
+        "rubric_path": "prompts/optimism.txt",
+        "max_tokens": 1024,
+        "concurrency": 2,
+        "timeout_seconds": 90,
+        "max_retries": 2,
+        "max_requests": 500,
+        "cache_path": ".cache/judge.sqlite3"
+      },
+      "planned_updates": 16,
+      "completed_updates": 16,
+      "final_exists": true,
+      "judged_groups": 64,
+      "judged_answers": 256,
+      "empty_answers": 11,
+      "last_memory": {
+        "step": 16,
+        "allocated_gib": 8.453,
+        "peak_allocated_gib": 13.197,
+        "peak_reserved_gib": 13.297
+      },
+      "final_training_statistics": {
+        "epoch": 0.064,
+        "step": 16,
+        "total_flos": 0.0,
+        "train_loss": 0.0009681645037176168,
+        "train_runtime": 226.783,
+        "train_samples_per_second": 1.129,
+        "train_steps_per_second": 0.071
+      },
+      "mean_logged_step_seconds": 13.085158783320367
+    },
+    {
+      "path": "runs/lfm3-run-02",
+      "score_name": "optimism",
+      "rubric_path": "prompts/optimism.txt",
+      "judge_rubric_sha256": "b0d010b05f64e553ce5c6fb15a1f5ae049bc1d524ce8fa30a951f8c220cda893",
+      "training_settings": {
+        "model": "LiquidAI/LFM3-1.7B",
+        "revision": "main",
+        "output_dir": "runs/lfm3-optimism",
+        "seed": 42,
+        "max_steps": 16,
+        "learning_rate": 1e-06,
+        "num_generations": 4,
+        "micro_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "max_completion_length": 4096,
+        "max_answer_tokens": 512,
+        "enable_thinking": true,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "gradient_checkpointing": true,
+        "optimizer": "adamw_bnb_8bit",
+        "beta": 0.01,
+        "reference_cpu_offload_gib": 5.0,
+        "save_steps": 25,
+        "logging_steps": 1
+      },
+      "data_settings": {
+        "repo_id": "tatsu-lab/alpaca_farm",
+        "revision": "main",
+        "train_file": "alpaca_instructions/unlabeled.json",
+        "eval_file": "alpaca_instructions/val.json",
+        "output_dir": "data/lfm3",
+        "train_samples": 1000,
+        "eval_samples": 100,
+        "max_prompt_tokens": 512
+      },
+      "judge_settings": {
+        "model": "claude-haiku-5-5",
+        "rubric_path": "prompts/optimism.txt",
+        "max_tokens": 1024,
+        "concurrency": 2,
+        "timeout_seconds": 90,
+        "max_retries": 2,
+        "max_requests": 500,
+        "cache_path": ".cache/judge.sqlite3"
+      },
+      "planned_updates": 16,
+      "completed_updates": 16,
+      "final_exists": true,
+      "judged_groups": 64,
+      "judged_answers": 256,
+      "empty_answers": 0,
+      "last_memory": {
+        "step": 16,
+        "allocated_gib": 8.454,
+        "peak_allocated_gib": 13.909,
+        "peak_reserved_gib": 14.248
+      },
+      "final_training_statistics": {
+        "epoch": 0.064,
+        "step": 16,
+        "total_flos": 0.0,
+        "train_loss": 0.0009265630505979061,
+        "train_runtime": 1325.6996,
+        "train_samples_per_second": 0.193,
+        "train_steps_per_second": 0.012
+      },
+      "mean_logged_step_seconds": 78.67478913840023
+    },
+    {
+      "path": "runs/lfm3-run-03",
+      "score_name": "optimism",
+      "rubric_path": "prompts/optimism.txt",
+      "judge_rubric_sha256": "b0d010b05f64e553ce5c6fb15a1f5ae049bc1d524ce8fa30a951f8c220cda893",
+      "training_settings": {
+        "model": "LiquidAI/LFM3-1.7B",
+        "revision": "main",
+        "output_dir": "runs/lfm3-optimism",
+        "seed": 42,
+        "max_steps": 128,
+        "learning_rate": 5e-06,
+        "lr_scheduler_type": "constant",
+        "num_generations": 4,
+        "micro_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "max_completion_length": 4096,
+        "max_answer_tokens": 512,
+        "enable_thinking": true,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "gradient_checkpointing": true,
+        "optimizer": "adamw_bnb_8bit",
+        "beta": 0.01,
+        "reference_cpu_offload_gib": 5.0,
+        "save_steps": 25,
+        "logging_steps": 1
+      },
+      "data_settings": {
+        "repo_id": "tatsu-lab/alpaca_farm",
+        "revision": "main",
+        "train_file": "alpaca_instructions/unlabeled.json",
+        "eval_file": "alpaca_instructions/val.json",
+        "output_dir": "data/lfm3",
+        "train_samples": 1000,
+        "eval_samples": 100,
+        "max_prompt_tokens": 512
+      },
+      "judge_settings": {
+        "model": "claude-haiku-5-5",
+        "rubric_path": "prompts/optimism.txt",
+        "max_tokens": 1024,
+        "concurrency": 2,
+        "timeout_seconds": 90,
+        "max_retries": 2,
+        "max_requests": 2048,
+        "cache_path": ".cache/judge.sqlite3"
+      },
+      "planned_updates": 128,
+      "completed_updates": 128,
+      "final_exists": true,
+      "judged_groups": 512,
+      "judged_answers": 2048,
+      "empty_answers": 15,
+      "last_memory": {
+        "step": 128,
+        "allocated_gib": 8.453,
+        "peak_allocated_gib": 13.926,
+        "peak_reserved_gib": 14.387
+      },
+      "final_training_statistics": {
+        "epoch": 0.512,
+        "step": 128,
+        "total_flos": 0.0,
+        "train_loss": 0.010536270296910288,
+        "train_runtime": 9931.0556,
+        "train_samples_per_second": 0.206,
+        "train_steps_per_second": 0.013
+      },
+      "mean_logged_step_seconds": 73.74848534737384
+    },
+    {
+      "path": "runs/childishness-01",
+      "score_name": "conciseness",
+      "rubric_path": "prompts/conciseness.txt",
+      "judge_rubric_sha256": "feb4163107622af05230d24f0ad2a6fd69ad036298dd6a255111858d33ead218",
+      "training_settings": {
+        "model": "LiquidAI/LFM3-1.7B",
+        "revision": "main",
+        "output_dir": "runs/lfm3-optimism",
+        "seed": 42,
+        "max_steps": 512,
+        "learning_rate": 5e-06,
+        "lr_scheduler_type": "constant",
+        "num_generations": 4,
+        "micro_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "max_completion_length": 4096,
+        "max_answer_tokens": 1024,
+        "enable_thinking": true,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "gradient_checkpointing": true,
+        "optimizer": "adamw_bnb_8bit",
+        "beta": 0.01,
+        "reference_cpu_offload_gib": 5.0,
+        "save_steps": 25,
+        "logging_steps": 1
+      },
+      "data_settings": {
+        "repo_id": "tatsu-lab/alpaca_farm",
+        "revision": "main",
+        "train_file": "alpaca_instructions/unlabeled.json",
+        "eval_file": "alpaca_instructions/val.json",
+        "output_dir": "data/lfm3",
+        "train_samples": 5000,
+        "eval_samples": 100,
+        "max_prompt_tokens": 512
+      },
+      "judge_settings": {
+        "model": "claude-haiku-5-5",
+        "rubric_path": "prompts/conciseness.txt",
+        "score_name": "conciseness",
+        "max_tokens": 1024,
+        "concurrency": 2,
+        "timeout_seconds": 90,
+        "max_retries": 2,
+        "max_requests": 4096,
+        "cache_path": ".cache/judge.sqlite3"
+      },
+      "planned_updates": 512,
+      "completed_updates": 6,
+      "final_exists": false,
+      "judged_groups": 24,
+      "judged_answers": 96,
+      "empty_answers": 1,
+      "last_memory": {
+        "step": 6,
+        "allocated_gib": 8.454,
+        "peak_allocated_gib": 13.917,
+        "peak_reserved_gib": 14.207
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "path": "runs/lfm3-comparison-02",
+      "summary": {
+        "baseline_model": "/home/estevan/Ambientes/rlllmf/runs/lfm3-run-02/initial_model",
+        "trained_model": "/home/estevan/Ambientes/rlllmf/runs/lfm3-run-02/final",
+        "examples": 100,
+        "settings": {
+          "judge": {
+            "model": "claude-haiku-5-5",
+            "rubric_path": "prompts/optimism.txt",
+            "max_tokens": 1024,
+            "concurrency": 2,
+            "timeout_seconds": 90,
+            "max_retries": 2,
+            "max_requests": 500,
+            "cache_path": ".cache/judge.sqlite3"
+          },
+          "data": {
+            "repo_id": "tatsu-lab/alpaca_farm",
+            "revision": "main",
+            "train_file": "alpaca_instructions/unlabeled.json",
+            "eval_file": "alpaca_instructions/val.json",
+            "output_dir": "data/lfm3",
+            "train_samples": 1000,
+            "eval_samples": 100,
+            "max_prompt_tokens": 512
+          },
+          "training": {
+            "model": "LiquidAI/LFM3-1.7B",
+            "revision": "main",
+            "output_dir": "runs/lfm3-optimism",
+            "seed": 42,
+            "max_steps": 16,
+            "learning_rate": 1e-06,
+            "num_generations": 4,
+            "micro_batch_size": 1,
+            "gradient_accumulation_steps": 16,
+            "max_completion_length": 4096,
+            "max_answer_tokens": 512,
+            "enable_thinking": true,
+            "temperature": 0.8,
+            "top_p": 0.9,
+            "gradient_checkpointing": true,
+            "optimizer": "adamw_bnb_8bit",
+            "beta": 0.01,
+            "reference_cpu_offload_gib": 5.0,
+            "save_steps": 25,
+            "logging_steps": 1
+          },
+          "evaluation": {
+            "max_completion_length": 4096,
+            "max_answer_tokens": 512,
+            "enable_thinking": true,
+            "temperature": 0.8,
+            "top_p": 0.9
+          }
+        },
+        "sampling_repetition_penalty": 1.0,
+        "method": "paired absolute optimism scores; anonymized shuffled candidates",
+        "judge_settings": {
+          "model": "claude-haiku-5-5",
+          "rubric_path": "prompts/optimism.txt",
+          "max_tokens": 1024,
+          "concurrency": 2,
+          "timeout_seconds": 90,
+          "max_retries": 2,
+          "max_requests": 500,
+          "cache_path": ".cache/judge.sqlite3"
+        },
+        "baseline": {
+          "mean_optimism": 0.5685,
+          "contradiction_rate": 0.04,
+          "unsupported_or_unclear_rate": 0.18,
+          "relevance_rate": 1.0,
+          "empty_answer_rate": 0.0,
+          "generation_limit_rate": 0.01,
+          "judge_answer_clipping_rate": 0.24
+        },
+        "trained": {
+          "mean_optimism": 0.5782,
+          "contradiction_rate": 0.05,
+          "unsupported_or_unclear_rate": 0.19,
+          "relevance_rate": 1.0,
+          "empty_answer_rate": 0.0,
+          "generation_limit_rate": 0.0,
+          "judge_answer_clipping_rate": 0.24
+        },
+        "delta_trained_minus_baseline": {
+          "mean_optimism": 0.009700000000000042,
+          "contradiction_rate": 0.010000000000000002,
+          "unsupported_or_unclear_rate": 0.010000000000000009,
+          "relevance_rate": 0.0,
+          "empty_answer_rate": 0.0,
+          "generation_limit_rate": -0.01,
+          "judge_answer_clipping_rate": 0.0
+        },
+        "optimism_outcomes": {
+          "counts": {
+            "trained": 21,
+            "baseline": 19,
+            "tie": 60
+          },
+          "rates": {
+            "trained": 0.21,
+            "baseline": 0.19,
+            "tie": 0.6
+          }
+        },
+        "judge_usage": {
+          "api_requests": 59,
+          "cache_hits": 41,
+          "input_tokens": 123257,
+          "output_tokens": 8732
+        }
+      }
+    },
+    {
+      "path": "runs/lfm3-comparison-03",
+      "summary": {
+        "baseline_model": "/home/estevan/Ambientes/rlllmf/runs/lfm3-run-03/initial_model",
+        "trained_model": "/home/estevan/Ambientes/rlllmf/runs/lfm3-run-03/final",
+        "examples": 100,
+        "settings": {
+          "judge": {
+            "model": "claude-haiku-5-5",
+            "rubric_path": "prompts/optimism.txt",
+            "max_tokens": 1024,
+            "concurrency": 2,
+            "timeout_seconds": 90,
+            "max_retries": 2,
+            "max_requests": 2048,
+            "cache_path": ".cache/judge.sqlite3"
+          },
+          "data": {
+            "repo_id": "tatsu-lab/alpaca_farm",
+            "revision": "main",
+            "train_file": "alpaca_instructions/unlabeled.json",
+            "eval_file": "alpaca_instructions/val.json",
+            "output_dir": "data/lfm3",
+            "train_samples": 1000,
+            "eval_samples": 100,
+            "max_prompt_tokens": 512
+          },
+          "training": {
+            "model": "LiquidAI/LFM3-1.7B",
+            "revision": "main",
+            "output_dir": "runs/lfm3-optimism",
+            "seed": 42,
+            "max_steps": 128,
+            "learning_rate": 5e-06,
+            "lr_scheduler_type": "constant",
+            "num_generations": 4,
+            "micro_batch_size": 1,
+            "gradient_accumulation_steps": 16,
+            "max_completion_length": 4096,
+            "max_answer_tokens": 512,
+            "enable_thinking": true,
+            "temperature": 0.8,
+            "top_p": 0.9,
+            "gradient_checkpointing": true,
+            "optimizer": "adamw_bnb_8bit",
+            "beta": 0.01,
+            "reference_cpu_offload_gib": 5.0,
+            "save_steps": 25,
+            "logging_steps": 1
+          },
+          "evaluation": {
+            "max_completion_length": 4096,
+            "max_answer_tokens": 512,
+            "enable_thinking": true,
+            "temperature": 0.0,
+            "top_p": 0.9,
+            "cache_baseline": true,
+            "baseline_cache_path": ".cache/baseline.sqlite3"
+          }
+        },
+        "sampling_repetition_penalty": 1.0,
+        "method": "paired absolute optimism scores; anonymized shuffled candidates",
+        "baseline_cache": {
+          "enabled": true,
+          "hits": 0,
+          "misses": 100,
+          "path": "/home/estevan/Ambientes/rlllmf/.cache/baseline.sqlite3",
+          "model_and_generation_fingerprint": "55f276420e28eb62e9e766de56fb00e688f565917e71759fe10e82e0f0c96397"
+        },
+        "decoding": {
+          "max_new_tokens": 4096,
+          "do_sample": false,
+          "temperature": null,
+          "top_p": null,
+          "top_k": null,
+          "num_beams": 1,
+          "repetition_penalty": 1.0,
+          "use_cache": true
+        },
+        "judge_settings": {
+          "model": "claude-haiku-5-5",
+          "rubric_path": "prompts/optimism.txt",
+          "max_tokens": 1024,
+          "concurrency": 2,
+          "timeout_seconds": 90,
+          "max_retries": 2,
+          "max_requests": 2048,
+          "cache_path": ".cache/judge.sqlite3"
+        },
+        "baseline": {
+          "mean_optimism": 0.5675,
+          "contradiction_rate": 0.01,
+          "unsupported_or_unclear_rate": 0.19,
+          "relevance_rate": 0.99,
+          "empty_answer_rate": 0.01,
+          "generation_limit_rate": 0.01,
+          "judge_answer_clipping_rate": 0.2
+        },
+        "trained": {
+          "mean_optimism": 0.5809,
+          "contradiction_rate": 0.0,
+          "unsupported_or_unclear_rate": 0.22,
+          "relevance_rate": 0.98,
+          "empty_answer_rate": 0.02,
+          "generation_limit_rate": 0.03,
+          "judge_answer_clipping_rate": 0.25
+        },
+        "delta_trained_minus_baseline": {
+          "mean_optimism": 0.013399999999999967,
+          "contradiction_rate": -0.01,
+          "unsupported_or_unclear_rate": 0.03,
+          "relevance_rate": -0.010000000000000009,
+          "empty_answer_rate": 0.01,
+          "generation_limit_rate": 0.019999999999999997,
+          "judge_answer_clipping_rate": 0.04999999999999999
+        },
+        "optimism_outcomes": {
+          "counts": {
+            "trained": 25,
+            "baseline": 13,
+            "tie": 62
+          },
+          "rates": {
+            "trained": 0.25,
+            "baseline": 0.13,
+            "tie": 0.62
+          }
+        },
+        "judge_usage": {
+          "api_requests": 99,
+          "cache_hits": 1,
+          "input_tokens": 201414,
+          "output_tokens": 14719
+        }
+      }
+    }
+  ],
+  "memory_breakdown_from_lfm3_run_03_gib": {
+    "policy_weights": 3.2201437950134277,
+    "optimizer_states": 4.728794753551483,
+    "reference_between_calls_gpu": 0.48828125,
+    "reference_offloaded_cpu": 2.7319,
+    "gradient_tensor_size_when_present": 3.2201437950134277,
+    "last_allocated": 8.453,
+    "peak_allocated": 13.926,
+    "peak_reserved": 14.387,
+    "limitation": "No separate phase-level activation, KV-cache, or temporary-workspace peaks were recorded."
+  }
+}

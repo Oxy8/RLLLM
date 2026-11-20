@@ -1,0 +1,112 @@
+# Copy to .config and fill in the key. Environment variables override these two secrets.
+[api]
+anthropic_api_key = "" # Or set ANTHROPIC_API_KEY
+hf_token = ""          # Optional; or set HF_TOKEN
+
+[judge]
+model = "claude-haiku-5-5"
+rubric_path = "prompts/childishness-quality.txt"
+score_name = "childishness"
+# Both scores are requested together; combination happens locally.
+reward_mode = "quality_softplus"
+# reward = main_score - scale/k * log(1 + exp(k * (center - task_quality)))
+quality_softplus_center = 0.65
+quality_softplus_sharpness = 21.972245773362193 # ln(3) / 0.05
+quality_softplus_scale = 10.0
+# Previous experiment: reward_mode = "quality_gated", quality_baseline = 0.7
+# Alternative childlike speaking-voice experiment:
+# rubric_path = "prompts/childishness.txt"
+# score_name = "childishness"
+# Alternative complete-but-concise final-answer experiment:
+# rubric_path = "prompts/conciseness.txt"
+# score_name = "conciseness"
+max_tokens = 2048
+concurrency = 2
+timeout_seconds = 90
+max_retries = 2
+# Maximum fresh Messages API requests per invocation, excluding SDK transport retries.
+# Cached judgments do not count. Increase deliberately for longer runs.
+max_requests = 10000
+# Replace refused/invalid question groups, up to this many extra questions per update.
+max_replacements_per_step = 16
+cache_path = ".cache/judge.sqlite3"
+
+[data]
+repo_id = "tatsu-lab/alpaca_farm"
+revision = "main"
+train_file = "alpaca_instructions/unlabeled.json"
+eval_file = "alpaca_instructions/val.json"
+output_dir = "data/lfm3"
+train_samples = 5000
+eval_samples = 100
+# Filter overlong tasks; do not truncate away part of the original instruction.
+max_prompt_tokens = 512
+
+[training]
+model = "runs/imported/checkpoint-512"
+revision = "main"
+output_dir = "runs/lfm3-childishness-quality-02"
+seed = 42
+max_steps = 1024
+learning_rate = 0.000005
+# Keep the configured learning rate throughout training.
+lr_scheduler_type = "constant"
+num_generations = 4
+micro_batch_size = 1
+# 1 x 16 = 16 prompt-answer pairs (4 questions x 4 answers) per update.
+gradient_accumulation_steps = 16
+# Local generation budget: thinking plus final answer, excluding the prompt.
+max_completion_length = 4096
+temperature = 0.8
+top_p = 0.9
+gradient_checkpointing = true
+optimizer = "adamw_bnb_8bit"
+# Keep reference KL enabled. Set to 0 to remove it and save reference-model memory.
+beta = 0.01
+# Maximum frozen-reference weights/buffers kept in CPU RAM, in GiB. 0 disables offload.
+# Whole decoder layers are selected; other training RAM is outside this budget.
+reference_cpu_offload_gib = 5.0
+# Keep every GRPO checkpoint; no automatic checkpoint deletion.
+save_steps = 256
+logging_steps = 1
+# Remove only masked trailing padding during reference scoring and policy updates.
+# Generated tokens, loss normalization and the effective batch size are unchanged.
+trim_training_padding = true
+# Per-answer final-text cap before the judge API, measured with the local tokenizer.
+max_answer_tokens = 4096
+enable_thinking = true
+
+[sft]
+# Separate supervised warm-up; the GRPO settings above remain independent.
+dataset_path = "data/childishness-sft/examples.jsonl"
+output_dir = "runs/lfm3-childishness-sft-01"
+num_train_epochs = 2
+learning_rate = 0.000005
+lr_scheduler_type = "constant"
+micro_batch_size = 1
+gradient_accumulation_steps = 16
+max_seq_length = 2048
+# Saves once per epoch, retaining one resumable checkpoint plus final/.
+
+[collection]
+# Separate source split; its original answers are discarded.
+source_file = "alpaca_instructions/sft.json"
+output_dir = "data/childishness-sft"
+prompt_path = "prompts/generate-childishness.txt"
+pool_size = 500
+# Each invocation adds this many NEW question-answer pairs.
+examples_per_run = 100
+max_tokens = 2048
+concurrency = 2
+# Uses [judge].model and [api].anthropic_api_key; no scoring requests are made.
+
+[evaluation]
+# Match these settings between baseline and trained-model evaluations.
+max_completion_length = 4096
+temperature = 0.0 # Greedy decoding; positive values enable sampling
+top_p = 0.9
+max_answer_tokens = 4096
+enable_thinking = true
+cache_baseline = true
+baseline_cache_path = ".cache/baseline.sqlite3"
+

@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Judge log viewer</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #24312f; background: #f5f6f2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header, main { max-width: 1280px; margin: auto; padding: 24px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -.5px; }
+    h2 { font-size: 16px; margin: 0; }
+    p { margin: 0; }
+    .muted { color: #65716a; font-size: 13px; overflow-wrap: anywhere; }
+    button, .file-button, input { font: inherit; border-radius: 8px; border: 1px solid #c9d2cb; }
+    button, .file-button { padding: 10px 16px; background: white; color: #24312f; cursor: pointer; }
+    button:hover, .file-button:hover { background: #edf2ed; }
+    button:disabled { opacity: .4; cursor: default; }
+    button.primary { background: #215c49; color: white; border-color: #215c49; }
+    :focus-visible { outline: 3px solid #8aba9d; outline-offset: 3px; }
+    #file { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    .file-button:focus-within { outline: 3px solid #8aba9d; outline-offset: 3px; }
+    main { padding-top: 0; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; position: sticky; top: 0; background: #f5f6f2; z-index: 1; }
+    .position, .buttons { display: flex; align-items: center; gap: 10px; }
+    #jump { width: 78px; padding: 9px; background: white; }
+    .run-picker { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; flex-wrap: wrap; }
+    #runs { font: inherit; padding: 10px; border: 1px solid #c9d2cb; border-radius: 8px; background: white; max-width: 100%; min-width: 240px; }
+    #live-status { color: #397855; font-size: 12px; }
+    .card { background: white; border: 1px solid #dce2da; border-radius: 12px; padding: 24px; }
+    .instruction { margin-bottom: 20px; }
+    .label { text-transform: uppercase; letter-spacing: 1.3px; font-size: 11px; font-weight: 700; color: #65716a; margin-bottom: 12px; }
+    .columns { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    .comparison-columns { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .card-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 22px; }
+    .text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 1.75; }
+    #answer { min-height: 180px; }
+    .score { background: #eef5ef; padding: 18px; border-radius: 8px; margin-bottom: 20px; }
+    #score, #quality-score, #reward-score, #baseline-score, #trained-score { font-size: 32px; font-weight: 650; letter-spacing: -1px; }
+    .score small { font-size: 14px; color: #65716a; }
+    #score-bar { width: 100%; accent-color: #397855; height: 8px; margin-top: 12px; display: block; }
+    dl { margin: 0 0 24px; }
+    .field { padding: 10px 0; border-bottom: 1px solid #edf0eb; }
+    dt { font-size: 12px; color: #65716a; margin-bottom: 4px; }
+    dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; }
+    details { margin-top: 24px; font-size: 13px; }
+    summary { cursor: pointer; color: #65716a; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 1.6; }
+    #error { background: #fff0ed; color: #953c2e; padding: 16px; border-radius: 8px; margin-bottom: 16px; white-space: pre-wrap; }
+    #empty { text-align: center; padding: 80px 24px; }
+    #empty h2 { margin-bottom: 12px; font-size: 22px; }
+    footer { padding: 20px 0; color: #65716a; font-size: 12px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 760px) {
+      header, main { padding: 16px; }
+      main { padding-top: 0; }
+      .columns { grid-template-columns: 1fr; }
+      nav { flex-wrap: wrap; }
+      .card { padding: 18px; }
+      .file-button, button { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>Judge log viewer</h1><p id="source" class="muted">Open a judge.jsonl file to begin.</p></div>
+    <label class="file-button">Open log<input id="file" type="file" accept=".jsonl,.json,.txt"></label>
+  </header>
+  <main>
+    <div id="live-controls" class="run-picker" hidden><label for="runs">Run</label><select id="runs" aria-label="Select a run"></select><span id="live-status" role="status">Connecting…</span></div>
+    <p id="error" role="alert" hidden></p>
+    <section id="empty" class="card"><h2>One answer at a time.</h2><p class="muted">Choose a local log to read the instruction, model answer, and judge evaluation together.</p></section>
+    <div id="viewer" hidden>
+      <nav aria-label="Answer navigation">
+        <div class="position"><label id="page-unit" for="jump">Answer</label><input id="jump" type="number" min="1" value="1" aria-label="Go to answer"><span id="total"></span></div>
+        <div class="buttons"><button id="previous" type="button">← Previous</button><button id="next" class="primary" type="button">Next →</button></div>
+      </nav>
+      <p id="comparison-overview" class="muted" style="margin-bottom:16px" hidden></p>
+      <section class="card instruction"><p id="location" class="label"></p><div id="instruction" class="text"></div></section>
+      <div id="single-answer" class="columns">
+        <section class="card"><div class="card-head"><h2>Local model answer</h2><span id="policy-model" class="muted"></span></div><div id="answer" class="text"></div><p id="answer-note" class="muted" hidden></p></section>
+        <section class="card">
+          <div class="card-head"><h2>Judge evaluation</h2><span id="judge-model" class="muted"></span></div>
+          <div id="optimism" class="score"><p class="label">Optimism</p><span id="score"></span><small> / 1</small><progress id="score-bar" max="1"></progress></div>
+          <div id="task-quality" class="score" hidden><p class="label">Task quality</p><span id="quality-score"></span><small> / 1</small></div>
+          <div id="combined-reward" class="score" hidden><p class="label">Combined training reward</p><span id="reward-score"></span></div>
+          <dl id="fields"></dl>
+          <div id="explanation"><p class="label">Judge explanation</p><div id="reason" class="text"></div></div>
+          <p id="no-judgment" class="muted" hidden>No judge evaluation recorded for this answer.</p>
+          <details id="raw-details"><summary>Full recorded judge response</summary><pre id="raw"></pre></details>
+        </section>
+      </div>
+      <div id="comparison-view" hidden>
+        <p id="comparison-result" class="label"></p>
+        <div class="columns comparison-columns">
+          <section class="card"><div class="card-head"><h2>Original model</h2><span id="baseline-model" class="muted"></span></div><div id="baseline-answer" class="text"></div><div class="score" style="margin-top:24px"><p class="label">Optimism</p><span id="baseline-score"></span></div><p id="baseline-reason" class="text"></p><details><summary>Full judgment and generation diagnostics</summary><pre id="baseline-judgment"></pre></details></section>
+          <section class="card"><div class="card-head"><h2>Trained model</h2><span id="trained-model" class="muted"></span></div><div id="trained-answer" class="text"></div><div class="score" style="margin-top:24px"><p class="label">Optimism</p><span id="trained-score"></span></div><p id="trained-reason" class="text"></p><details><summary>Full judgment and generation diagnostics</summary><pre id="trained-judgment"></pre></details></section>
+        </div>
+      </div>
+      <footer id="footer">Use ← / → to navigate, or enter an answer number. Files stay in your browser; no server or API calls.</footer>
+    </div>
+  </main>
+  <script id="embedded-log" type="application/json">null</script>
+  <script>
+    "use strict";
+    const $ = id => document.getElementById(id);
+    let entries = [];
+    let position = 0;
+    let liveEnabled = document.body.dataset.live === "true";
+    let livePath = null;
+    let liveVersion = null;
+    let displayedPath = null;
+    let refreshing = false;
+    const pretty = value => typeof value === "string" ? value : JSON.stringify(value, null, 2);
+    const label = key => key.replaceAll("_", " ").replace(/^./, char => char.toUpperCase());
+    const scoreLabel = name => name === "childishness" ? "Childlike voice" : label(name);
+    const scoreDescription = name => ({optimism:"more optimistic", childishness:"more childlike", conciseness:"more concise"})[name] || "higher scoring";
+
+    function parseLog(text, metadata = {}) {
+      const output = [];
+      const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/);
+      let group = 0;
+      for (let line = 0; line < lines.length; line++) {
+        if (!lines[line].trim()) continue;
+        let row;
+        try { row = JSON.parse(lines[line]); }
+        catch { throw new Error(`Line ${line + 1}: invalid JSON. If training is still writing this file, save it again and reopen it.`); }
+        if (!row || typeof row !== "object" || typeof row.instruction !== "string") {
+          throw new Error(`Line ${line + 1}: expected a logged instruction.`);
+        }
+        const answers = Array.isArray(row.responses) ? row.responses : [row.response];
+        const judgments = Array.isArray(row.responses) ? row.judgments : [row.judgment];
+        if (!answers.length || answers.some(answer => typeof answer !== "string")) {
+          throw new Error(`Line ${line + 1}: expected response text.`);
+        }
+        if (judgments != null && (!Array.isArray(judgments) || judgments.length !== answers.length)) {
+          throw new Error(`Line ${line + 1}: answer and judgment counts differ.`);
+        }
+        group++;
+        const firstJudgment = judgments?.[0];
+        const scoreName = row.score_name || row.comparison?.score_name || metadata.score_name
+          || (firstJudgment && typeof firstJudgment === "object"
+            ? ["conciseness", "childishness", "optimism"].find(name => name in firstJudgment)
+            : null) || "optimism";
+        if (row.comparison && typeof row.comparison === "object") {
+          if (answers.length !== 2 || judgments?.length !== 2) throw new Error(`Line ${line + 1}: comparison requires exactly two answers and judgments.`);
+          output.push({instruction:row.instruction, group, comparison:row.comparison,
+            answers, judgments, scoreName, generations:row.generation_diagnostics || [], judgeModel:row.judge_model || ""});
+          continue;
+        }
+        // Logs already align judgments with answers. Candidate IDs can repeat when
+        // duplicate answers were deduplicated for the judge; do not sort by ID.
+        answers.forEach((answer, index) => output.push({
+          instruction: row.instruction, answer, judgment: judgments?.[index] ?? null,
+          group, candidate: index + 1, candidates: answers.length,
+          scoreName,
+          judgeModel: row.judge_model || metadata.judge_model || "",
+          policyModel: row.policy_model || metadata.policy_model || "",
+          generation: Array.isArray(row.responses) ? row.generation_diagnostics?.[index] : row.generation_diagnostics,
+        }));
+      }
+      if (!output.length) throw new Error("This file contains no answers.");
+      return output;
+    }
+
+    function render() {
+      const entry = entries[position];
+      $("jump").value = position + 1;
+      $("jump").max = entries.length;
+      $("total").textContent = `of ${entries.length}`;
+      $("previous").disabled = position === 0;
+      $("next").disabled = position === entries.length - 1;
+      $("location").textContent = `Question ${entry.group} · Candidate ${entry.candidate} of ${entry.candidates}`;
+      $("instruction").textContent = entry.instruction;
+      const paired = !!entry.comparison;
+      $("single-answer").hidden = paired;
+      $("comparison-view").hidden = !paired;
+      $("comparison-overview").hidden = !paired;
+      $("page-unit").textContent = paired ? "Question" : "Answer";
+      if (paired) {
+        const scoreName = entry.scoreName;
+        const trait = scoreLabel(scoreName);
+        const description = scoreDescription(scoreName);
+        const rows = entries.filter(row => row.comparison);
+        const wins = rows.filter(row => row.comparison.winner === "trained").length;
+        const ties = rows.filter(row => row.comparison.winner === "tie").length;
+        const mean = rows.reduce((sum,row) => sum + row.comparison[scoreName+"_delta"],0) / rows.length;
+        $("comparison-overview").textContent = `${rows.length} held-out questions · Trained ${description}: ${wins} · Original ${description}: ${rows.length-wins-ties} · Ties: ${ties} · Mean ${trait.toLowerCase()} change: ${mean >= 0 ? "+" : ""}${mean.toFixed(3)}`;
+        $("location").textContent = `Question ${entry.group} · Judge: ${entry.judgeModel}`;
+        const delta = entry.comparison[scoreName+"_delta"];
+        $("comparison-result").textContent = `${entry.comparison.winner === "tie" ? "Equal " + trait.toLowerCase() + " scores" : entry.comparison.winner === "trained" ? "Trained model " + description : "Original model " + description} · Change ${delta >= 0 ? "+" : ""}${delta.toFixed(3)}`;
+        for (const [index,side] of ["baseline","trained"].entries()) {
+          $(side+"-model").textContent = entry.comparison[side+"_model"] || "";
+          $(side+"-answer").textContent = entry.answers[index] || "(Empty answer)";
+          $(side+"-score").parentElement.querySelector(".label").textContent = trait;
+          $(side+"-score").textContent = Number(entry.judgments[index][scoreName]).toFixed(2) + " / 1";
+          const judgment = entry.judgments[index];
+          const reasons = [judgment[scoreName+"_reason"] || judgment.reason || ""];
+          if (typeof judgment.task_quality === "number") {
+            reasons.push(`Task quality: ${judgment.task_quality.toFixed(2)} / 1 · Combined reward: ${judgment.reward.toFixed(3)}`, judgment.task_quality_reason || "");
+          }
+          $(side+"-reason").textContent = reasons.join("\n\n");
+          $(side+"-judgment").textContent = JSON.stringify({judgment:entry.judgments[index],generation:entry.generations[index]},null,2);
+        }
+        return;
+      }
+      $("answer").textContent = entry.answer || "(Empty answer)";
+      $("answer-note").hidden = !!entry.answer && !entry.generation?.answer_truncated_for_judge;
+      $("answer-note").textContent = entry.answer && entry.generation?.answer_truncated_for_judge
+        ? `The judge saw ${entry.generation.judge_answer_tokens} of ${entry.generation.final_answer_tokens} final-answer tokens. Thinking was excluded.`
+        : entry.generation?.unfinished_thinking
+        ? "Generation ended inside a thinking block. No final answer was produced."
+        : entry.generation ? "No final-answer text was produced. See generation diagnostics in the log."
+        : "This log contains no generation diagnostics, so the original generated text cannot be recovered here.";
+      $("policy-model").textContent = entry.policyModel;
+      $("judge-model").textContent = entry.judgeModel;
+      const judgment = entry.judgment;
+      const hasJudgment = judgment !== null && typeof judgment === "object" && !Array.isArray(judgment);
+      const scoreName = entry.scoreName;
+      const score = hasJudgment ? judgment[scoreName] : null;
+      const hasScore = typeof score === "number" && Number.isFinite(score) && score >= 0 && score <= 1;
+      $("optimism").querySelector(".label").textContent = scoreLabel(scoreName);
+      $("optimism").hidden = !hasScore;
+      if (hasScore) { $("score").textContent = score.toFixed(2); $("score-bar").value = score; }
+      for (const [field, card, valueId] of [["task_quality","task-quality","quality-score"],["reward","combined-reward","reward-score"]]) {
+        const value = hasJudgment ? judgment[field] : null;
+        const present = typeof value === "number" && Number.isFinite(value);
+        $(card).hidden = !present;
+        if (present) $(valueId).textContent = value.toFixed(3);
+      }
+      $("fields").replaceChildren();
+      if (hasJudgment) {
+        for (const [key, value] of Object.entries(judgment)) {
+          if (["reason", scoreName+"_reason", "task_quality", "reward"].includes(key) || (key === scoreName && hasScore)) continue;
+          const field = document.createElement("div"); field.className = "field";
+          const term = document.createElement("dt"); term.textContent = label(key);
+          const definition = document.createElement("dd"); definition.textContent = pretty(value);
+          field.append(term, definition); $("fields").append(field);
+        }
+      }
+      $("no-judgment").hidden = judgment !== null;
+      const reason = hasJudgment ? judgment[scoreName+"_reason"] ?? judgment.reason : null;
+      $("explanation").hidden = reason == null;
+      $("reason").textContent = reason == null ? "" : pretty(reason);
+      $("raw-details").hidden = judgment === null;
+      $("raw-details").open = false;
+      $("raw").textContent = judgment === null ? "" : JSON.stringify(judgment, null, 2);
+    }
+
+    function loadLog(text, name, metadata = {}, preservePosition = false) {
+      try {
+        const parsed = parseLog(text, metadata);
+        const wasOpen = $("raw-details").open;
+        entries = parsed; position = preservePosition ? Math.min(position, entries.length - 1) : 0;
+        $("source").textContent = name;
+        $("error").hidden = true; $("empty").hidden = true; $("viewer").hidden = false;
+        render();
+        if (preservePosition) $("raw-details").open = wasOpen;
+        return true;
+      } catch (error) {
+        $("error").textContent = error.message; $("error").hidden = false;
+        return false;
+      }
+    }
+
+    function waiting(message) {
+      entries = []; position = 0; displayedPath = null;
+      $("viewer").hidden = true; $("empty").hidden = false;
+      $("empty").querySelector("h2").textContent = "Waiting for answers";
+      $("empty").querySelector("p").textContent = message;
+      $("error").hidden = true;
+    }
+
+    async function refreshLive() {
+      if (!liveEnabled || refreshing) return;
+      refreshing = true;
+      try {
+        const listing = await fetch("/api/logs", {cache: "no-store"});
+        if (!listing.ok) throw new Error("Cannot list logs. Is the local viewer server running?");
+        const {logs} = await listing.json();
+        if (!liveEnabled) return;
+        const paths = logs.map(log => log.path);
+        if (JSON.stringify(paths) !== JSON.stringify(Array.from($("runs").options, option => option.value))) {
+          $("runs").replaceChildren(...paths.map(path => {
+            const option = document.createElement("option"); option.value = path; option.textContent = path;
+            return option;
+          }));
+        }
+        if (!logs.length) {
+          livePath = null; liveVersion = null;
+          waiting("Start a training run. Its judge.jsonl will appear here automatically.");
+          $("live-status").textContent = "Live · watching for runs";
+          return;
+        }
+        if (!paths.includes(livePath)) {
+          const requested = new URLSearchParams(location.search).get("log");
+          livePath = paths.includes(requested) ? requested : paths[0]; liveVersion = null;
+          position = 0;
+        }
+        $("runs").value = livePath;
+        const chosen = livePath;
+        const version = logs.find(log => log.path === chosen).version;
+        if (version !== liveVersion) {
+          const response = await fetch(`/api/log?path=${encodeURIComponent(chosen)}`, {cache: "no-store"});
+          if (!response.ok) throw new Error("Log temporarily unavailable; retrying automatically.");
+          const log = await response.json();
+          if (!liveEnabled || livePath !== chosen) return;
+          if (!log.text.trim()) {
+            waiting("The selected run has not finished writing its first judgment yet.");
+            $("source").textContent = chosen;
+          } else if (!loadLog(log.text, chosen, log.metadata, displayedPath === chosen)) {
+            $("live-status").textContent = "Live · retrying";
+            return;
+          } else {
+            displayedPath = chosen;
+          }
+          // Do not mark an incomplete write as current; retry it on the next poll.
+          liveVersion = log.pending ? null : version;
+        }
+        $("error").hidden = true;
+        $("live-status").textContent = "Live · refreshes every 2 seconds";
+      } catch (error) {
+        $("live-status").textContent = "Disconnected · retrying";
+        $("error").textContent = error.message; $("error").hidden = false;
+      } finally { refreshing = false; }
+    }
+
+    $("runs").addEventListener("change", event => {
+      liveEnabled = true; livePath = event.target.value; liveVersion = null;
+      const url = new URL(location.href); url.searchParams.set("log", livePath);
+      history.replaceState(null, "", url);
+      waiting("Loading selected run…");
+      refreshLive();
+    });
+
+    function move(delta) {
+      if (!entries.length) return;
+      position = Math.max(0, Math.min(entries.length - 1, position + delta));
+      render();
+    }
+    $("previous").addEventListener("click", () => move(-1));
+    $("next").addEventListener("click", () => move(1));
+    $("jump").addEventListener("change", event => {
+      const target = Number(event.target.value);
+      if (Number.isInteger(target) && target >= 1 && target <= entries.length) position = target - 1;
+      render();
+    });
+    document.addEventListener("keydown", event => {
+      const editing = event.target instanceof Element && event.target.matches("input, textarea, select, [contenteditable]");
+      if (editing || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.key === "ArrowRight") { event.preventDefault(); move(1); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); }
+    });
+    $("file").addEventListener("change", async event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      liveEnabled = false;
+      if (!$("live-controls").hidden) $("live-status").textContent = "Manual file · choose a run to resume live updates";
+      try { loadLog(await file.text(), file.name); }
+      catch { $("error").textContent = "Could not read this file."; $("error").hidden = false; }
+      event.target.value = "";
+    });
+    const initial = JSON.parse($("embedded-log").textContent);
+    if (initial) loadLog(initial.text, initial.name, initial.metadata);
+    if (liveEnabled && !initial) {
+      $("live-controls").hidden = false;
+      $("footer").textContent = "Use ← / → to navigate, or enter an answer number. Logs are read locally and refresh every 2 seconds. No judge API calls.";
+      refreshLive();
+      setInterval(refreshLive, 2000);
+    }
+  </script>
+</body>
+</html>

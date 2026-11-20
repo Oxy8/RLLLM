@@ -1,0 +1,12 @@
+# Local credentials and Python environment.
+.config
+.venv
+# Generated data, downloaded models, run results and checkpoints.
+.cache/
+data/
+runs/
+# Python bytecode and tool caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
